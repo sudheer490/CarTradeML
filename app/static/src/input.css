@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply 2xl:text-[78px] xl:text-7xl lg:text-7xl text-4xl 2xl:leading-[90px] xl:leading-[87px] font-bold;
+  }
+  h2 {
+    @apply lg:text-[56px] text-xl lg:leading-[68px] font-bold;
+  }
+  h3 {
+    @apply lg:text-[32px] text-lg lg:leading-10 font-medium;
+  }
+  h4 {
+    @apply lg:text-2xl text-base;
+  }
+  h5,
+  h6,
+  p,
+  a {
+    @apply lg:text-lg text-base font-normal lg:leading-6;
+  }
+}
+
+.bg-orange-gradient {
+  background: linear-gradient(
+    300deg,
+    rgb(247, 240, 237) 0%,
+    rgb(241, 246, 245) 75%
+  );
+}
+
+.bg-gradient-2 {
+  background: linear-gradient(
+    70deg,
+    rgb(247, 240, 237) 0%,
+    rgb(241, 246, 245) 75%
+  );
+}
+
+.bg-pickups:hover {
+  background-color: #b8b3bb;
+}
+
+.bg-suv:hover {
+  background-color: #fbb317;
+}
+
+.bg-hatchback:hover {
+  background-color: #033178;
+}
+
+.bg-coupe:hover {
+  background-color: #dedbdb;
+}
+
+.bg-sedan:hover {
+  background-color: #f1f1f1;
+}
+
+.bg-convertible:hover {
+  background-color: #ffe6cd;
+}
+
+.bg-minivan:hover {
+  background-color: #f86e7d;
+}
+
+.bg-wagon:hover {
+  background-color: #f1eaa8;
+}
+
+.lazy-image {
+  opacity: 0; /* Hide initially to create a smooth fade-in effect */
+  transition: opacity 2s;
+}
+.lazy-image.loaded {
+  opacity: 1; /* Fades in when loaded */
+}

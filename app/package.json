@@ -1,0 +1,31 @@
+{
+  "name": "used-car-price",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind": "npx tailwindcss -i ./static/src/input.css -o ./static/css/main.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surajshivkumar/Used-car-price.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/surajshivkumar/Used-car-price/issues"
+  },
+  "homepage": "https://github.com/surajshivkumar/Used-car-price#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "slim-select": "^2.6.0",
+    "tailwindcss": "^3.3.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6"
+  }
+}

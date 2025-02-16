@@ -1,0 +1,290 @@
+,car_type
+0,Subaru Wrx
+1,Audi A3
+2,Bmw 5 Series
+3,Hyundai Elantra
+4,Dodge Charger
+5,Kia K5
+6,Cadillac Cts
+7,Mercedes Benz C Class
+8,Toyota Corolla
+9,Volkswagen Jetta
+10,Nissan Sentra
+11,Chevrolet Malibu
+12,Honda Civic
+13,Nissan Altima
+14,Mercedes Benz Cls
+15,Toyota Camry
+16,Honda Accord
+17,Kia Cadenza
+18,Kia Forte
+19,Lexus Ls
+20,Mercedes Benz E Class
+21,Lexus Is
+22,Bmw 3 Series
+23,Audi A6
+24,Infiniti Q50
+25,Cadillac Ct4
+26,Hyundai Sonata
+27,Chrysler 300
+28,Ford Fusion
+29,Mercedes Benz Cla
+30,Genesis G70
+31,Kia Rio
+32,Toyota Avalon
+33,Volkswagen Passat
+34,Nissan Maxima
+35,Volvo S60
+36,Acura Ilx
+37,Audi A4
+38,Bmw 4 Series
+39,Genesis G90
+40,Acura Tlx
+41,Polestar 2
+42,Audi S6
+43,Tesla Model 3
+44,Chrysler 200
+45,Audi A8
+46,Cadillac Ct5
+47,Kia Optima
+48,Lexus Es
+49,Infiniti Q40
+50,Alfa Romeo Giulia
+51,Mazda Mazda3
+52,Bmw 2 Series
+53,Jaguar Xj
+54,Honda Insight
+55,Kia Stinger
+56,Chevrolet Volt
+57,Lincoln Mkz
+58,Mercedes Benz S Class
+59,Lincoln Continental
+60,Dodge Dart
+61,Mercedes Benz A Class
+62,Nissan Versa
+63,Genesis G80
+64,Mazda Mazda6
+65,Cadillac Xts
+66,Lexus Gs
+67,Subaru Impreza
+68,Honda Clarity
+69,Buick Regal
+70,Ford Fiesta
+71,Acura Integra
+72,Ford Taurus
+73,Bmw 6 Series
+74,Audi S8
+75,Chevrolet Cruze
+76,Volkswagen Arteon
+77,Acura Tl
+78,Chevrolet Impala
+79,Cadillac Ats
+80,Buick Lacrosse
+81,Audi S4
+82,Tesla Model S
+83,Chevrolet Equinox
+84,Kia Sportage
+85,Chevrolet Blazer
+86,Ford Edge
+87,Jeep Wrangler
+88,Volvo Xc40
+89,Bmw X3
+90,Cadillac Xt4
+91,Volkswagen Atlas
+92,Volvo Xc60
+93,Hyundai Santa Fe
+94,Bmw X5
+95,Toyota Venza
+96,Gmc Terrain
+97,Subaru Crosstrek
+98,Toyota 4Runner
+99,Hyundai Palisade
+100,Audi Q5
+101,Mazda Cx 5
+102,Hyundai Tucson
+103,Mazda Cx 30
+104,Bmw X1
+105,Ford Escape
+106,Jeep Compass
+107,Alfa Romeo Stelvio
+108,Nissan Rogue
+109,Nissan Kicks
+110,Nissan Rogue Sport
+111,Chevrolet Trailblazer
+112,Gmc Acadia
+113,Genesis Gv70
+114,Honda Cr V
+115,Jeep Cherokee
+116,Mazda Cx 3
+117,Ford Explorer
+118,Volkswagen Taos
+119,Lexus Rx
+120,Volkswagen Tiguan
+121,Toyota Corolla Cross
+122,Hyundai Kona
+123,Nissan Murano
+124,Buick Enclave
+125,Toyota C Hr
+126,Infiniti Qx50
+127,Dodge Journey
+128,Gmc Yukon
+129,Chevrolet Tahoe
+130,Subaru Forester
+131,Buick Envision
+132,Lincoln Nautilus
+133,Honda Hr V
+134,Toyota Highlander
+135,Toyota Rav4
+136,Acura Mdx
+137,Ford Bronco
+138,Mercedes Benz Glc
+139,Lincoln Mkc
+140,Lexus Nx
+141,Jaguar I Pace
+142,Jeep Grand Cherokee
+143,Ford Ecosport
+144,Kia Telluride
+145,Kia Niro
+146,Mini Cooper Countryman
+147,Fiat 500X
+148,Audi Q3
+149,Honda Pilot
+150,Lexus Ux
+151,Ford Expedition
+152,Audi Q7
+153,Buick Encore
+154,Acura Rdx
+155,Chevrolet Trax
+156,Hyundai Venue
+157,Chevrolet Suburban
+158,Subaru Ascent
+159,Lincoln Aviator
+160,Jeep Grand Cherokee L
+161,Lincoln Corsair
+162,Mitsubishi Eclipse Cross
+163,Ford Bronco Sport
+164,Mercedes Benz Gl Class
+165,Genesis Gv80
+166,Volkswagen Id 4
+167,Jaguar F Pace
+168,Volvo Xc90
+169,Kia Niro Ev
+170,Mitsubishi Outlander
+171,Jeep Renegade
+172,Buick Encore Gx
+173,Nissan Pathfinder
+174,Lexus Gx
+175,Lincoln Navigator
+176,Mercedes Benz Gle
+177,Chevrolet Bolt Euv
+178,Audi Sq7
+179,Dodge Durango
+180,Mazda Cx 9
+181,Kia Sorento
+182,Audi Q8
+183,Land Rover Range Rover Velar
+184,Ford Expedition Max
+185,Gmc Yukon Xl
+186,Hyundai Santa Fe Sport
+187,Cadillac Srx
+188,Land Rover Discovery Sport
+189,Porsche Cayenne
+190,Bmw X2
+191,Cadillac Xt5
+192,Hyundai Kona N
+193,Tesla Model X
+194,Lexus Lx
+195,Kia Seltos
+196,Lincoln Navigator L
+197,Mitsubishi Outlander Sport
+198,Chevrolet Traverse
+199,Mercedes Benz Gls
+200,Lincoln Mkx
+201,Kia Ev6
+202,Porsche Macan
+203,Audi Sq5
+204,Mercedes Benz Glb
+205,Cadillac Escalade
+206,Bmw X3 M
+207,Mercedes Benz Gla
+208,Hyundai Ioniq 5
+209,Jeep Patriot
+210,Cadillac Xt6
+211,Honda Passport
+212,Ford Flex
+213,Volvo C40
+214,Toyota Fj Cruiser
+215,Infiniti Qx30
+216,Jeep Wagoneer
+217,Infiniti Qx60
+218,Toyota Land Cruiser
+219,Subaru Outback
+220,Kia Soul
+221,Audi Allroad
+222,Volkswagen Golf
+223,Jaguar F Type
+224,Chevrolet Corvette
+225,Chevrolet Camaro
+226,Ford Mustang
+227,Dodge Challenger
+228,Lexus Rc
+229,Bmw M2
+230,Audi Rs5
+231,Subaru Brz
+232,Toyota Gr86
+233,Toyota 86
+234,Infiniti Q60
+235,Bmw I8
+236,Audi A5
+237,Bmw M4
+238,Toyota Gr Supra
+239,Honda Odyssey
+240,Chrysler Pacifica
+241,Toyota Sienna
+242,Dodge Grand Caravan
+243,Ford Transit Connect
+244,Kia Carnival
+245,Toyota Tacoma
+246,Chevrolet Silverado 1500
+247,Toyota Tundra
+248,Ford F 150
+249,Hyundai Santa Cruz
+250,Jeep Gladiator
+251,Ram 2500
+252,Chevrolet Colorado
+253,Nissan Frontier
+254,Ram 1500
+255,Ford Maverick
+256,Ford Ranger
+257,Chevrolet Silverado 3500Hd
+258,Ford F 350
+259,Gmc Sierra 1500
+260,Nissan Titan
+261,Gmc Canyon
+262,Ram 3500
+263,Honda Ridgeline
+264,Gmc Sierra 2500Hd
+265,Ford F 250
+266, 
+267,Honda Fit
+268,Bmw I3
+269,Nissan Versa Note
+270,Toyota Prius
+271,Hyundai Veloster
+272,Toyota Prius Prime
+273,Mini Cooper
+274,Chevrolet Bolt Ev
+275,Audi S5
+276,Volkswagen Beetle
+277,Ford Focus
+278,Chevrolet Spark
+279,Hyundai Ioniq
+280,Hyundai Veloster N
+281,Audi A7
+282,Mazda Miata
+283,Bmw Z4
+284,Fiat 124 Spider
+285,Buick Cascada
+286,Mercedes Benz Slc
+287,Mercedes Benz Slk
+288,Volvo C70

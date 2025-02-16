@@ -1,0 +1,893 @@
+{% extends "base.html" %} {% block title %}Sell{% endblock %} {% block content
+%}
+<div id="sell-section" class="h-full">
+  <div
+    class="lg:min-h-[calc(100vh-128px)] flex justify-center items-center relative container lg:py-24 py-12"
+  >
+    <div class="grid lg:grid-cols-2 grid-cols-1 lg:gap-12 gap-6">
+      <div class="flex flex-col justify-center lg:text-start text-center">
+        <h1 class="mb-3">
+          See what your <span class="text-orange-600">car is worth</span>
+        </h1>
+        <p class="mb-5 text-slate-500">
+          Get an instant appraisal in as little as <b>10 seconds.</b>
+        </p>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <img
+          src="../static/assets/sell/sell-landing.webp"
+          alt="gif"
+          class="w-full max-w-xl aspect-[4/3]"
+        />
+      </div>
+    </div>
+    <div class="items-center justify-center absolute bottom-6 lg:flex hidden">
+      <img
+        src="../static/assets/sell/animation_scroll_down.gif"
+        alt=""
+        class="w-20 h-20 cursor-pointer"
+        onclick="scrollToSection('sell-form')"
+      />
+    </div>
+  </div>
+
+  <div
+    id="sell-form"
+    class="flex items-center justify-center lg:py-24 py-12 bg-orange-gradient lg:min-h-[calc(100vh-128px)]"
+  >
+    <div class="container">
+      <form action="/sell" method="post" class="hidden w-full">
+        <input type="hidden" name="action" value="getCarMake" />
+        <input id="getCarMake" type="text" name="carMake" value="" />
+        <input id="getCarModel" type="text" name="carModel" value="" />
+      </form>
+
+      <form
+        action="/sell"
+        method="post"
+        class="bg-shadow bg-white lg:p-8 p-4 rounded-xl w-full"
+        id="form"
+      >
+        <p class="lg:pb-4 pb-2 font-semibold">
+          Please fill in the form to get a quote
+        </p>
+        <input type="hidden" name="action" value="getCarPrice" />
+        <div class="grid lg:grid-cols-3 grid-cols-1 gap-4">
+          <div class="flex flex-col">
+            <label class="text-sm pb-1" for="carType">Car Type</label>
+            <select
+              required
+              id="carType"
+              name="type"
+              class="border border-gray-300 rounded focus:!border-cyan-400 focus-visible:outline-cyan-400 hover:border-cyan-400 h-9"
+            >
+              <option value="" disabled selected>Please select</option>
+              {% for car in carTypes %}
+              <option value="{{ car }}">{{ car }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="flex flex-col">
+            <label class="text-sm pb-1" for="carMake">Car Make</label>
+            <select
+              required
+              id="carMake"
+              name="make"
+              disabled
+              class="border border-gray-300 rounded focus:!border-cyan-400 focus-visible:outline-cyan-400 hover:border-cyan-400 h-9"
+            >
+              <option value="" disabled selected>
+                Please select Car Type first
+              </option>
+              {% for make in car_make %}
+              <option value="{{ make }}">{{ make }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="flex flex-col">
+            <label class="text-sm pb-1" for="carModel">Car Model</label>
+            <select
+              required
+              id="carModel"
+              name="model"
+              disabled
+              class="border border-gray-300 rounded focus:!border-cyan-400 focus-visible:outline-cyan-400 hover:border-cyan-400 h-9"
+            >
+              <option value="" disabled selected>
+                Please select Car Make first
+              </option>
+            </select>
+          </div>
+
+          <div class="flex flex-col">
+            <label class="text-sm pb-1" for="carMileage">Miles Driven</label>
+            <input
+              required
+              type="number"
+              name="mileage_miles"
+              id="carMileage"
+              placeholder="Enter Mileage"
+              class="px-2 border border-gray-300 rounded focus:!border-cyan-400 focus-visible:outline-cyan-400 hover:border-cyan-400 h-9"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label class="text-sm pb-1" for="city_mpg">City MPG</label>
+            <input
+              required
+              type="number"
+              name="city_mpg"
+              placeholder="Enter City MPG"
+              class="px-2 border border-gray-300 rounded focus:!border-cyan-400 focus-visible:outline-cyan-400 hover:border-cyan-400 h-9"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label class="text-sm pb-1" for="hwy_mpg">Highway MPG</label>
+            <input
+              required
+              type="number"
+              name="hwy_mpg"
+              placeholder="Enter Highway MPG"
+              class="px-2 border border-gray-300 rounded focus:!border-cyan-400 focus-visible:outline-cyan-400 hover:border-cyan-400 h-9"
+            />
+          </div>
+
+          <div class="flex flex-col relative">
+            <label class="text-sm pb-1" for="carYear">Car Year</label>
+            <input
+              type="text"
+              required
+              value=""
+              placeholder="YYYY"
+              name="year"
+              autocomplete="off"
+              class="cursor-pointer yearpicker px-2 border border-gray-300 rounded focus:!border-cyan-400 focus-visible:outline-cyan-400 hover:border-cyan-400 h-9"
+            />
+            <span class="material-symbols-rounded absolute right-0 top-8">
+              expand_more
+            </span>
+          </div>
+
+          <div class="flex flex-col">
+            <label class="text-sm pb-1" for="door">Car Doors</label>
+            <select
+              required
+              id="door"
+              name="door"
+              class="border border-gray-300 rounded focus:!border-cyan-400 focus-visible:outline-cyan-400 hover:border-cyan-400 h-9"
+            >
+              <option value="" disabled selected>Please select</option>
+              {% for door in doorList %}
+              <option value="{{ door }}">{{ door }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="flex flex-col">
+            <label class="text-sm pb-1" for="transmission">Transmission</label>
+            <select
+              required
+              id="transmission"
+              name="transmission"
+              class="border border-gray-300 rounded focus:!border-cyan-400 focus-visible:outline-cyan-400 hover:border-cyan-400 h-9"
+            >
+              <option value="" disabled selected>Please select</option>
+              {% for transmission in transmissionList %}
+              <option value="{{ transmission }}">{{ transmission }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="flex flex-col">
+            <label class="text-sm pb-1" for="engine">Engine</label>
+            <select
+              id="engine"
+              name="engine"
+              class="border rounded focus:!border-cyan-400 focus-visible:outline-cyan-400 hover:border-cyan-400 h-9"
+            >
+              <option value="" disabled selected>Please select</option>
+              {% for engine in engineList %}
+              <option value="{{ engine }}">{{ engine }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="flex flex-col">
+            <label class="text-sm pb-1" for="drive_type">Drive Type</label>
+            <select
+              required
+              id="drive_type"
+              name="drive_type"
+              class="border border-gray-300 rounded focus:!border-cyan-400 focus-visible:outline-cyan-400 hover:border-cyan-400 h-9"
+            >
+              <option value="" disabled selected>Please select</option>
+              {% for driveType in driveTypeList %}
+              <option value="{{ driveType }}">{{ driveType }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="flex flex-col">
+            <label class="text-sm pb-1" for="fuel">Fuel</label>
+            <select
+              required
+              id="fuel"
+              name="fuel"
+              class="border border-gray-300 rounded focus:!border-cyan-400 focus-visible:outline-cyan-400 hover:border-cyan-400 h-9"
+            >
+              <option value="" disabled selected>Please select</option>
+              {% for fuelType in fuelTypeList %}
+              <option value="{{ fuelType }}">{{ fuelType }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <div
+          class="pt-4 text-cyan-400 hover:text-cyan-500 flex items-center cursor-pointer gap-1 w-fit"
+          onclick="toggleAdvancedSettings()"
+          id="settings-button"
+        >
+          <span class="material-symbols-rounded"> settings </span>
+          <p class="sm:text-base text-sm">
+            <span id="show">Show</span> Advanced Settings
+          </p>
+        </div>
+        <div
+          class="hidden flex-wrap gap-4 lg:pt-6 pt-3"
+          id="advanced-settings"
+        ></div>
+
+        <div class="flex justify-end lg:pt-10 pt-5">
+          <button
+            id="submit"
+            type="submit"
+            class="whitespace-nowrap border-none text-center py-2 lg:px-5 px-3 transition lg:text-lg text-base font-semibold rounded-lg bg-cyan-400 hover:bg-cyan-600 text-white"
+          >
+            Get Quote
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- DO NO REMOVE THIS COMMENTED CODE -->
+  <!-- <div class="bg-blue-300 text-blue-300 text-green-300 bg-green-300 text-yellow-300 bg-yellow-300 bg-red-300 text-red-300"></div> -->
+  <div
+    id="price-section"
+    class="hidden fixed bottom-0 bg-gradient-2 w-full bg-shadow rounded-t-lg lg:py-3 py-1.5 min-h-[130px]"
+  >
+    <div class="container flex justify-between items-center">
+      <h3 class="font-semibold">Estimated Price:</h3>
+      <div>
+        <img
+          data-src="../static/assets/loading.gif"
+          alt="gif"
+          class="lazy-image w-40"
+          id="loading"
+        />
+        <div id="result" class="hidden">
+          <h2 class="text-orange-600" id="predicted-price"></h2>
+          <p id="previous-section" class="hidden">
+            Difference: <span id="previous-difference"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script
+    src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+    integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://unpkg.com/slim-select@latest/dist/slimselect.min.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/slim-select@latest/dist/slimselect.css"
+  />
+  <link rel="stylesheet" href="../static/yearpicker.css" />
+  <script src="../static/yearpicker.js"></script>
+
+  <script>
+    const dealType = "above";
+    const dealMap = {
+      great: {
+        color: "blue",
+      },
+      good: {
+        color: "green",
+      },
+      fair: {
+        color: "yellow",
+      },
+      above: {
+        color: "red",
+      },
+    };
+
+    const advancedFeatures = {
+      android_auto: "Android Auto",
+      apple_carplay: "Apple Carplay",
+      backup_camera_assist: "Backup Camera Assist",
+      bluetooth: "Bluetooth",
+      heated_seats: "Heated Seats",
+      hill_assist_system: "Hill Assist System",
+      keyless_entry: "Keyless Entry",
+      keyless_ignition: "Keyless Ignition",
+      multimedia_telematics: "Multimedia Telematics",
+      premium_sound_system: "Premium Sound System",
+      satellite_radio: "Satellite Radio",
+      sunroof_moonroof: "Sunroof Moonroof",
+      leather_seats: "Leather Seats",
+      power_seats: "Power Seats",
+      traction_control: "Traction Control",
+      driver_assistance_confidence_pkg: "Driver Assistance Confidence Pkg",
+      "head-up_display": "Head-up Display",
+      lane_departure_warning: "Lane Departure Warning",
+      navigation_system: "Navigation System",
+      remote_start: "Remote Start",
+      blind_spot_monitor: "Blind Spot Monitor",
+      lane_assist: "Lane Assist",
+      parking_assist_system: "Parking Assist System",
+      stability_control: "Stability Control",
+      adaptive_cruise_control: "Adaptive Cruise Control",
+      alloy_wheels: "Alloy Wheels",
+      cooled_seats: "Cooled Seats",
+      "full_self-driving_capability": "Full Self-driving Capability",
+      third_row_seating: "Third Row Seating",
+      tow_hitch_package: "Tow Hitch Package",
+      rear_seat_entertainment: "Rear Seat Entertainment",
+    };
+    let carTypeSelect = document.getElementById("carType");
+    let carMakeSelect = document.getElementById("carMake");
+    let carModelSelect = document.getElementById("carModel");
+    let dealHeaderDiv = document.getElementById("deal-header");
+    let dealMainDiv = document.getElementById("deal-main");
+    let advancedSettingsDiv = document.getElementById("advanced-settings");
+    let sellFormDiv = document.getElementById("sell-form");
+    let form = document.getElementById("form");
+
+    let slimSelectType = new SlimSelect({
+      select: carTypeSelect,
+    });
+    let slimSelectMake = new SlimSelect({
+      select: carMakeSelect,
+    });
+    let slimSelectModel = new SlimSelect({
+      select: carModelSelect,
+    });
+
+    let slimSelectDoor = new SlimSelect({
+      select: document.getElementById("door"),
+    });
+    let slimSelectTransmission = new SlimSelect({
+      select: document.getElementById("transmission"),
+    });
+    let slimSelectDriveType = new SlimSelect({
+      select: document.getElementById("drive_type"),
+    });
+    let slimSelectFuel = new SlimSelect({
+      select: document.getElementById("fuel"),
+    });
+    let slimSelectEngine = new SlimSelect({
+      select: document.getElementById("engine"),
+    });
+
+    let selectedCarType;
+    let selectedCarMake;
+    let selectedCarModel;
+    let isFormSubmitted = false;
+    let previousPrice = null;
+
+    carModelSelect.addEventListener("change", function () {
+      selectedCarModel = carModelSelect.value;
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      formSubmitListener();
+
+      $(".yearpicker").yearpicker({
+        startYear: 2011,
+        endYear: 2023,
+        onChange: () => {
+          if (isFormSubmitted) {
+            checkAndsubmitForm();
+          }
+        },
+      });
+    });
+
+    onSelectChange(carTypeSelect, "getCarMake");
+    onSelectChange(carMakeSelect, "getCarModel");
+
+    // setDealsDetails(dealType);
+    generateFeatures();
+    allSelectChangeListerner();
+
+    function setDealsDetails(dealType) {
+      setDealHeader(dealType, 70000);
+      setDealMain(dealType);
+    }
+
+    function formSubmitListener() {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        fetch("/sell", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            let priceSectionDiv = document.getElementById("price-section");
+            let loadingDiv = document.getElementById("loading");
+            let resultDiv = document.getElementById("result");
+            let predictedPriceElement =
+              document.getElementById("predicted-price");
+
+            // reset price loading
+            resultDiv.classList.add("hidden");
+            loadingDiv.classList.remove("hidden");
+
+            if (isFormSubmitted) {
+              previousPrice = predictedPriceElement.textContent;
+            }
+            const predictedPrice = data.price;
+            predictedPriceElement.textContent =
+              getFormattedPrice(predictedPrice);
+            if (previousPrice) {
+              setPriceDifference(predictedPrice);
+            }
+
+            // Add/Remove Classes
+            priceSectionDiv.classList.add("flex");
+            priceSectionDiv.classList.remove("hidden");
+            const loadingDelay = isFormSubmitted ? 1000 : 3500;
+
+            toggleDisabledState(true);
+            setTimeout(() => {
+              isFormSubmitted = true;
+              loadingDiv.classList.add("hidden");
+              resultDiv.classList.remove("hidden");
+              toggleDisabledState(false);
+            }, loadingDelay);
+          });
+      });
+    }
+
+    function toggleDisabledState(isDisabled) {
+      const selectElements = document.querySelectorAll("select");
+      const inputElements = document.querySelectorAll("input");
+      const buttonElements = document.querySelectorAll("button");
+      const allFormElements = [
+        ...selectElements,
+        ...inputElements,
+        ...buttonElements,
+      ];
+      for (let i = 0; i < allFormElements.length; i++) {
+        allFormElements[i].disabled = isDisabled;
+      }
+    }
+
+    function setPriceDifference(predictedPrice) {
+      let previousSectionTag = document?.getElementById("previous-section");
+      const formatPreviousPrice = parseFloat(
+        previousPrice.replace(/[$,]/g, "")
+      );
+      const difference = parseInt(predictedPrice - formatPreviousPrice);
+
+      let color = "";
+      let formattedDifference = null;
+      if (difference > 0) {
+        color = "text-green-300";
+        formattedDifference = `+${getFormattedPrice(difference)}`;
+      } else if (difference < 0) {
+        color = "text-red-300";
+        formattedDifference = `${getFormattedPrice(difference)}`;
+      } else {
+        color = "text-black";
+        formattedDifference = "-";
+      }
+      let prevDiffElement = document?.getElementById("previous-difference");
+      if (previousSectionTag) {
+        prevDiffElement.textContent = formattedDifference;
+        prevDiffElement.className = "";
+        prevDiffElement.classList.add(color);
+        previousSectionTag.classList?.remove("hidden");
+      }
+    }
+
+    function getFormattedPrice(val) {
+      return val.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+      });
+    }
+
+    function onSelectChange(typeChanged, action) {
+      typeChanged.addEventListener("change", function () {
+        let selectedValue = typeChanged.value;
+        let nextSelect =
+          action === "getCarMake" ? slimSelectMake : slimSelectModel;
+
+        nextSelect.innerHTML = "";
+        resetSelect(nextSelect);
+        nextSelect.disable();
+        let payload = {};
+        if (action === "getCarMake") {
+          selectedCarType = selectedValue;
+          carModelSelect.innerHTML = "";
+          // resetSelect(slimSelectModel);
+        }
+        if (action === "getCarModel") {
+          payload["carMake"] = selectedValue;
+        }
+        payload["carType"] = selectedCarType;
+
+        if (selectedValue) {
+          const formData = new FormData();
+          formData.append("action", action);
+          formData.append("carType", payload.carType);
+          if (action === "getCarModel") {
+            formData.append("carMake", payload.carMake);
+          }
+          fetch("/sell", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              let tempArr = [];
+              let placeholder = document.createElement("option");
+              placeholder.value = "";
+              placeholder.textContent = "Please select";
+              placeholder.disabled = true;
+              placeholder.selected = true;
+              tempArr.push(placeholder);
+
+              data.forEach((ele) => {
+                let option = document.createElement("option");
+                option.value = ele;
+                option.textContent = toTitleCase(ele);
+                tempArr.push(option);
+              });
+              nextSelect.setData(tempArr);
+              nextSelect.enable();
+            })
+            .catch((error) => console.error(error));
+        }
+      });
+    }
+
+    function allSelectChangeListerner() {
+      const selectElements = document.querySelectorAll("select");
+      selectElements.forEach((ele) => {
+        if (ele.id === "carType" || ele.id === "carMake") {
+          return;
+        }
+
+        ele.addEventListener("change", function () {
+          checkAndsubmitForm();
+        });
+      });
+
+      let timeout;
+      const form = document.getElementById("form");
+      form.addEventListener("input", function (event) {
+        const target = event.target;
+        if (target.tagName === "INPUT") {
+          clearTimeout(timeout);
+          timeout = setTimeout(function () {
+            checkAndsubmitForm();
+          }, 750);
+        }
+      });
+    }
+
+    function resetSelect(slimSelect) {
+      let placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent = "Please select Car Type first";
+      slimSelect.setData(placeholder);
+    }
+
+    function toTitleCase(inputString) {
+      const words = inputString.split(" ");
+      const titleCaseWords = words.map((word) => {
+        if (word.length === 0) {
+          return ""; // Handle empty words (e.g., multiple spaces)
+        }
+        return word[0].toUpperCase() + word.slice(1).toLowerCase();
+      });
+      return titleCaseWords.join(" ");
+    }
+
+    function toggleAdvancedSettings() {
+      // document.getElementById("submit")
+      if (advancedSettingsDiv.classList.contains("hidden")) {
+        setTimeout(() => {
+          scrollToSection("settings-button");
+        }, 50);
+
+        advancedSettingsDiv.classList.remove("hidden");
+        advancedSettingsDiv.classList.add("flex");
+        document.getElementById("show").textContent = "Hide";
+        return;
+      }
+      scrollToSection("sell-form");
+      advancedSettingsDiv.classList.remove("flex");
+      advancedSettingsDiv.classList.add("hidden");
+      document.getElementById("show").textContent = "Show";
+    }
+
+    function generateFeatures() {
+      for (const key in advancedFeatures) {
+        if (advancedFeatures.hasOwnProperty(key)) {
+          const featureDiv = document.createElement("div");
+          featureDiv.className = "flex flex-col gap-1 min-w-[200px]";
+
+          const featureParagraph = document.createElement("p");
+          featureParagraph.className = "text-xs";
+          featureParagraph.textContent = advancedFeatures[key];
+
+          const featureLabel = document.createElement("label");
+          featureLabel.className = "switch";
+
+          const featureInput = document.createElement("input");
+          featureInput.type = "checkbox";
+
+          const featureSlider = document.createElement("span");
+          featureSlider.className = "slider";
+
+          const hiddenInput = document.createElement("input");
+          hiddenInput.type = "hidden";
+          hiddenInput.name = key;
+          hiddenInput.value = 0;
+
+          featureInput.addEventListener("change", function () {
+            hiddenInput.value = featureInput.checked ? 1 : 0;
+            checkAndsubmitForm();
+          });
+
+          featureLabel.appendChild(hiddenInput);
+          featureLabel.appendChild(featureInput);
+          featureLabel.appendChild(featureSlider);
+          featureDiv.appendChild(featureParagraph);
+          featureDiv.appendChild(featureLabel);
+          advancedSettingsDiv.appendChild(featureDiv);
+        }
+      }
+    }
+
+    function checkAndsubmitForm() {
+      if (isFormSubmitted && form.reportValidity()) {
+        const submitButton = document.getElementById("submit");
+        submitButton.click();
+      }
+    }
+
+    function scrollToSection(ele, isDefined = false, offset = 0) {
+      const element = isDefined ? ele : document.getElementById(ele);
+      let navbarOffset = 64;
+      let elementPosition = element.getBoundingClientRect().top;
+      let offsetPosition =
+        elementPosition + window.pageYOffset - navbarOffset + offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+
+    // function setDealMain(type) {
+    //   const parentDiv = dealMainDiv.querySelector(`.${type}`);
+    //   if (parentDiv) {
+    //     const childDiv = parentDiv.querySelector("div");
+    //     childDiv.classList.remove("bg-gray-300");
+    //     childDiv.classList.add(`bg-${dealMap[type].color}-300`);
+    //     const pElement = parentDiv.querySelector("p");
+    //     pElement.classList.remove("text-gray-500");
+    //     pElement.classList.add(`text-${dealMap[type].color}-300`);
+    //   }
+    // }
+    // function setDealHeader(type, price) {
+    //   const parentDiv = dealHeaderDiv.querySelector(`.${type}`);
+    //   if (parentDiv) {
+    //     const pElement1 = document.createElement("p");
+    //     pElement1.classList.add("font-semibold", "lg:text-sm", "text-xs");
+    //     pElement1.textContent = "THIS VEHICLE";
+
+    //     const pElement2 = document.createElement("p");
+    //     pElement2.classList.add(
+    //       "lg:text-base",
+    //       "text-sm",
+    //       "font-semibold",
+    //       "pb-2"
+    //     );
+    //     pElement2.textContent = `$${price}`;
+
+    //     const circleDiv = document.createElement("div");
+    //     circleDiv.classList.add(
+    //       "bg-white",
+    //       `shadow-${dealMap[type].color}`,
+    //       "rounded-full",
+    //       "w-4",
+    //       "h-4",
+    //       "mx-auto",
+    //       "z-10",
+    //       "relative"
+    //     );
+
+    //     parentDiv.appendChild(pElement1);
+    //     parentDiv.appendChild(pElement2);
+    //     parentDiv.appendChild(circleDiv);
+    //   }
+    // }
+  </script>
+
+  <style>
+    .top-section {
+      position: relative;
+    }
+    /* @media (min-width: 1024px) {
+    .top-section::before {
+      position: absolute;
+      right: -10%;
+      top: -35%;
+      z-index: -1;
+      height: 800px;
+      width: 800px;
+      border-radius: 9999px;
+      --tw-content: "";
+      content: var(--tw-content);
+      background: linear-gradient(
+        200deg,
+        rgb(247, 240, 237) 40%,
+        rgb(241, 246, 245) 100%
+      );
+    }
+  } */
+    .shadow-blue {
+      box-shadow:
+        0 0 0 4px #93c5fdb0,
+        0 0 0 8px #93c5fd80;
+    }
+
+    .shadow-green {
+      box-shadow:
+        0 0 0 4px #35d0b1b0,
+        0 0 0 8px #35d0b180;
+    }
+
+    .shadow-yellow {
+      box-shadow:
+        0 0 0 4px #fde047b0,
+        0 0 0 8px #fde04780;
+    }
+
+    .shadow-red {
+      box-shadow:
+        0 0 0 4px #fca5a5b0,
+        0 0 0 8px #fca5a580;
+    }
+
+    .switch {
+      --button-width: 3.5em;
+      --button-height: 2em;
+      --toggle-diameter: 1.5em;
+      --button-toggle-offset: calc(
+        (var(--button-height) - var(--toggle-diameter)) / 2
+      );
+      --toggle-shadow-offset: 10px;
+      --toggle-wider: 3em;
+      --color-grey: #cccccc;
+      --color-green: #22d3ee;
+      cursor: pointer;
+    }
+
+    .slider {
+      display: inline-block;
+      width: var(--button-width);
+      height: var(--button-height);
+      background-color: var(--color-grey);
+      border-radius: calc(var(--button-height) / 2);
+      position: relative;
+      transition: 0.3s all ease-in-out;
+    }
+
+    .slider::after {
+      content: "";
+      display: inline-block;
+      width: var(--toggle-diameter);
+      height: var(--toggle-diameter);
+      background-color: #fff;
+      border-radius: calc(var(--toggle-diameter) / 2);
+      position: absolute;
+      top: var(--button-toggle-offset);
+      transform: translateX(var(--button-toggle-offset));
+      box-shadow: var(--toggle-shadow-offset) 0
+        calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+      transition: 0.3s all ease-in-out;
+    }
+
+    .switch input[type="checkbox"]:checked + .slider {
+      background-color: var(--color-green);
+    }
+
+    .switch input[type="checkbox"]:checked + .slider::after {
+      transform: translateX(
+        calc(
+          var(--button-width) - var(--toggle-diameter) -
+            var(--button-toggle-offset)
+        )
+      );
+      box-shadow: calc(var(--toggle-shadow-offset) * -1) 0
+        calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+    }
+
+    .switch input[type="checkbox"] {
+      display: none;
+    }
+
+    .switch input[type="checkbox"]:active + .slider::after {
+      width: var(--toggle-wider);
+    }
+
+    .switch input[type="checkbox"]:checked:active + .slider::after {
+      transform: translateX(
+        calc(
+          var(--button-width) - var(--toggle-wider) -
+            var(--button-toggle-offset)
+        )
+      );
+    }
+  </style>
+  {% endblock %}
+<!-- <div class="bg-orange-gradient lg:py-24 py-12">
+  <div class="container">
+    <p class="font-semibold text-center">PRICE BREAKDOWN</p>
+    <p class="text-center pt-2">
+      This analysis is based on a comparison of 28 vehicles with similar
+      features and mileage in your local area.
+    </p>
+    <div>
+      <div id="deal-header" class="grid grid-cols-4 text-center lg:pt-12 pt-6">
+        <div class="great"></div>
+        <div class="good"></div>
+        <div class="fair"></div>
+        <div class="above"></div>
+      </div>
+      <div id="deal-main" class="grid grid-cols-4 -mt-7">
+        <div class="great pt-4 text-center relative">
+          <div class="w-full h-2 bg-gray-300 rounded-l-lg"></div>
+          <p class="pt-4 lg:text-sm text-xs font-semibold text-gray-500">
+            GREAT DEAL
+          </p>
+        </div>
+        <div class="good pt-4 text-center relative">
+          <div class="w-full h-2 bg-gray-300"></div>
+          <p class="pt-4 lg:text-sm text-xs font-semibold text-gray-500">
+            GOOD DEAL
+          </p>
+        </div>
+        <div class="fair pt-4 text-center relative">
+          <div class="w-full h-2 bg-gray-300"></div>
+          <p class="pt-4 lg:text-sm text-xs font-semibold text-gray-500">
+            FAIR PRICE
+          </p>
+        </div>
+        <div class="above pt-4 text-center relative">
+          <div class="w-full h-2 bg-gray-300 rounded-r-lg"></div>
+          <p class="pt-4 lg:text-sm text-xs font-semibold text-gray-500">
+            ABOVE MARKET
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

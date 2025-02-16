@@ -1,0 +1,646 @@
+2025-02-16 12:09:06,194 - INFO - Sell endpoint accessed. Method: POST
+2025-02-16 12:09:06,375 - INFO - Received POST request with action: getCarPrice
+2025-02-16 12:09:06,403 - INFO - Features extracted before prediction: [{'action': 'getCarPrice', 'type': 'Convertible', 'make': 'chevrolet', 'model': 'corvette', 'miles_driven': '20', 'city_mpg': '16', 'hwy_mpg': '17', 'year': '2023', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': '4WD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '1', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '1', 'traction_control': '1', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '1', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '1', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 16.5}]
+2025-02-16 12:09:06,409 - INFO - Received features for prediction: [{'action': 'getCarPrice', 'type': 'Convertible', 'make': 'chevrolet', 'model': 'corvette', 'miles_driven': '20', 'city_mpg': '16', 'hwy_mpg': '17', 'year': '2023', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': '4WD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '1', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '1', 'traction_control': '1', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '1', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '1', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 16.5}]
+2025-02-16 12:09:06,429 - INFO -           type       make  year     model  miles_driven  ... tow_hitch_package rear_seat_entertainment avg_mpg bin_sum lux_category
+0  convertible  chevrolet  2023  corvette          20.0  ...                 0                       0    16.5       5            0
+
+[1 rows x 43 columns]
+2025-02-16 12:09:06,491 - INFO - (1, 43)
+2025-02-16 12:09:06,491 - INFO -           type       make  year     model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  convertible  chevrolet  2023  corvette          20.0     4  8 Cyl    Automatic        4WD  Gasoline     16.5             0
+2025-02-16 12:09:06,520 - INFO - (1, 12)
+2025-02-16 12:09:06,521 - INFO - Processed feature values before prediction: [{'type': 'convertible', 'make': 'chevrolet', 'year': 2023, 'model': 'corvette', 'miles_driven': 20.0, 'doors': '4', 'engine': '8 Cyl', 'transmission': 'Automatic', 'drive_type': '4WD', 'fuel': 'Gasoline', 'avg_mpg': 16.5, 'lux_category': 0}]
+2025-02-16 12:09:06,522 - INFO - Feature data types: {'type': dtype('O'), 'make': dtype('O'), 'year': dtype('int32'), 'model': dtype('O'), 'miles_driven': dtype('float64'), 'doors': dtype('O'), 'engine': dtype('O'), 'transmission': dtype('O'), 'drive_type': dtype('O'), 'fuel': dtype('O'), 'avg_mpg': dtype('float64'), 'lux_category': dtype('int64')}
+2025-02-16 12:09:06,522 - INFO - Luxury category distribution: {0: 1}
+2025-02-16 12:09:06,524 - INFO - type             object
+make             object
+year              int64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 12:09:06,529 - INFO - type             object
+make             object
+year            float64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 12:09:06,531 - INFO -           type       make    year     model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  convertible  chevrolet  2023.0  corvette          20.0     4  8 cyl    automatic        4wd  gasoline     16.5             0
+2025-02-16 12:09:06,567 - INFO - Predicted price: 78022.78
+2025-02-16 12:09:06,567 - INFO - Predicted price: 78022.78
+2025-02-16 12:09:06,570 - INFO - 127.0.0.1 - - [16/Feb/2025 12:09:06] "POST /sell HTTP/1.1" 200 -
+2025-02-16 12:09:08,247 - INFO - Sell endpoint accessed. Method: POST
+2025-02-16 12:09:08,434 - INFO - Received POST request with action: getCarPrice
+2025-02-16 12:09:08,451 - INFO - Features extracted before prediction: [{'action': 'getCarPrice', 'type': 'Convertible', 'make': 'chevrolet', 'model': 'corvette', 'miles_driven': '20', 'city_mpg': '16', 'hwy_mpg': '17', 'year': '2023', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': '4WD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '1', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '1', 'traction_control': '1', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '0', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '1', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 16.5}]
+2025-02-16 12:09:08,457 - INFO - Received features for prediction: [{'action': 'getCarPrice', 'type': 'Convertible', 'make': 'chevrolet', 'model': 'corvette', 'miles_driven': '20', 'city_mpg': '16', 'hwy_mpg': '17', 'year': '2023', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': '4WD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '1', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '1', 'traction_control': '1', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '0', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '1', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 16.5}]
+2025-02-16 12:09:08,469 - INFO -           type       make  year     model  miles_driven  ... tow_hitch_package rear_seat_entertainment avg_mpg bin_sum lux_category
+0  convertible  chevrolet  2023  corvette          20.0  ...                 0                       0    16.5       4            0
+
+[1 rows x 43 columns]
+2025-02-16 12:09:08,543 - INFO - (1, 43)
+2025-02-16 12:09:08,544 - INFO -           type       make  year     model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  convertible  chevrolet  2023  corvette          20.0     4  8 Cyl    Automatic        4WD  Gasoline     16.5             0
+2025-02-16 12:09:08,566 - INFO - (1, 12)
+2025-02-16 12:09:08,569 - INFO - Processed feature values before prediction: [{'type': 'convertible', 'make': 'chevrolet', 'year': 2023, 'model': 'corvette', 'miles_driven': 20.0, 'doors': '4', 'engine': '8 Cyl', 'transmission': 'Automatic', 'drive_type': '4WD', 'fuel': 'Gasoline', 'avg_mpg': 16.5, 'lux_category': 0}]
+2025-02-16 12:09:08,570 - INFO - Feature data types: {'type': dtype('O'), 'make': dtype('O'), 'year': dtype('int32'), 'model': dtype('O'), 'miles_driven': dtype('float64'), 'doors': dtype('O'), 'engine': dtype('O'), 'transmission': dtype('O'), 'drive_type': dtype('O'), 'fuel': dtype('O'), 'avg_mpg': dtype('float64'), 'lux_category': dtype('int64')}
+2025-02-16 12:09:08,571 - INFO - Luxury category distribution: {0: 1}
+2025-02-16 12:09:08,574 - INFO - type             object
+make             object
+year              int64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 12:09:08,584 - INFO - type             object
+make             object
+year            float64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 12:09:08,586 - INFO -           type       make    year     model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  convertible  chevrolet  2023.0  corvette          20.0     4  8 cyl    automatic        4wd  gasoline     16.5             0
+2025-02-16 12:09:08,616 - INFO - Predicted price: 78022.78
+2025-02-16 12:09:08,617 - INFO - Predicted price: 78022.78
+2025-02-16 12:09:08,619 - INFO - 127.0.0.1 - - [16/Feb/2025 12:09:08] "POST /sell HTTP/1.1" 200 -
+2025-02-16 12:09:09,778 - INFO - Sell endpoint accessed. Method: POST
+2025-02-16 12:09:09,984 - INFO - Received POST request with action: getCarPrice
+2025-02-16 12:09:10,001 - INFO - Features extracted before prediction: [{'action': 'getCarPrice', 'type': 'Convertible', 'make': 'chevrolet', 'model': 'corvette', 'miles_driven': '20', 'city_mpg': '16', 'hwy_mpg': '17', 'year': '2023', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': '4WD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '1', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '1', 'traction_control': '1', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '0', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '0', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 16.5}]
+2025-02-16 12:09:10,005 - INFO - Received features for prediction: [{'action': 'getCarPrice', 'type': 'Convertible', 'make': 'chevrolet', 'model': 'corvette', 'miles_driven': '20', 'city_mpg': '16', 'hwy_mpg': '17', 'year': '2023', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': '4WD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '1', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '1', 'traction_control': '1', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '0', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '0', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 16.5}]
+2025-02-16 12:09:10,024 - INFO -           type       make  year     model  miles_driven  ... tow_hitch_package rear_seat_entertainment avg_mpg bin_sum lux_category
+0  convertible  chevrolet  2023  corvette          20.0  ...                 0                       0    16.5       3            0
+
+[1 rows x 43 columns]
+2025-02-16 12:09:10,086 - INFO - (1, 43)
+2025-02-16 12:09:10,086 - INFO -           type       make  year     model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  convertible  chevrolet  2023  corvette          20.0     4  8 Cyl    Automatic        4WD  Gasoline     16.5             0
+2025-02-16 12:09:10,113 - INFO - (1, 12)
+2025-02-16 12:09:10,116 - INFO - Processed feature values before prediction: [{'type': 'convertible', 'make': 'chevrolet', 'year': 2023, 'model': 'corvette', 'miles_driven': 20.0, 'doors': '4', 'engine': '8 Cyl', 'transmission': 'Automatic', 'drive_type': '4WD', 'fuel': 'Gasoline', 'avg_mpg': 16.5, 'lux_category': 0}]
+2025-02-16 12:09:10,116 - INFO - Feature data types: {'type': dtype('O'), 'make': dtype('O'), 'year': dtype('int32'), 'model': dtype('O'), 'miles_driven': dtype('float64'), 'doors': dtype('O'), 'engine': dtype('O'), 'transmission': dtype('O'), 'drive_type': dtype('O'), 'fuel': dtype('O'), 'avg_mpg': dtype('float64'), 'lux_category': dtype('int64')}
+2025-02-16 12:09:10,118 - INFO - Luxury category distribution: {0: 1}
+2025-02-16 12:09:10,120 - INFO - type             object
+make             object
+year              int64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 12:09:10,124 - INFO - type             object
+make             object
+year            float64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 12:09:10,125 - INFO -           type       make    year     model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  convertible  chevrolet  2023.0  corvette          20.0     4  8 cyl    automatic        4wd  gasoline     16.5             0
+2025-02-16 12:09:10,177 - INFO - Predicted price: 78022.78
+2025-02-16 12:09:10,186 - INFO - Predicted price: 78022.78
+2025-02-16 12:09:10,190 - INFO - 127.0.0.1 - - [16/Feb/2025 12:09:10] "POST /sell HTTP/1.1" 200 -
+2025-02-16 12:09:12,148 - INFO - Sell endpoint accessed. Method: POST
+2025-02-16 12:09:12,326 - INFO - Received POST request with action: getCarPrice
+2025-02-16 12:09:12,336 - INFO - Features extracted before prediction: [{'action': 'getCarPrice', 'type': 'Convertible', 'make': 'chevrolet', 'model': 'corvette', 'miles_driven': '20', 'city_mpg': '16', 'hwy_mpg': '17', 'year': '2023', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': '4WD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '1', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '1', 'traction_control': '0', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '0', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '0', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 16.5}]
+2025-02-16 12:09:12,336 - INFO - Received features for prediction: [{'action': 'getCarPrice', 'type': 'Convertible', 'make': 'chevrolet', 'model': 'corvette', 'miles_driven': '20', 'city_mpg': '16', 'hwy_mpg': '17', 'year': '2023', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': '4WD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '1', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '1', 'traction_control': '0', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '0', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '0', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 16.5}]
+2025-02-16 12:09:12,358 - INFO -           type       make  year     model  miles_driven  ... tow_hitch_package rear_seat_entertainment avg_mpg bin_sum lux_category
+0  convertible  chevrolet  2023  corvette          20.0  ...                 0                       0    16.5       2            0
+
+[1 rows x 43 columns]
+2025-02-16 12:09:12,419 - INFO - (1, 43)
+2025-02-16 12:09:12,419 - INFO -           type       make  year     model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  convertible  chevrolet  2023  corvette          20.0     4  8 Cyl    Automatic        4WD  Gasoline     16.5             0
+2025-02-16 12:09:12,446 - INFO - (1, 12)
+2025-02-16 12:09:12,449 - INFO - Processed feature values before prediction: [{'type': 'convertible', 'make': 'chevrolet', 'year': 2023, 'model': 'corvette', 'miles_driven': 20.0, 'doors': '4', 'engine': '8 Cyl', 'transmission': 'Automatic', 'drive_type': '4WD', 'fuel': 'Gasoline', 'avg_mpg': 16.5, 'lux_category': 0}]
+2025-02-16 12:09:12,449 - INFO - Feature data types: {'type': dtype('O'), 'make': dtype('O'), 'year': dtype('int32'), 'model': dtype('O'), 'miles_driven': dtype('float64'), 'doors': dtype('O'), 'engine': dtype('O'), 'transmission': dtype('O'), 'drive_type': dtype('O'), 'fuel': dtype('O'), 'avg_mpg': dtype('float64'), 'lux_category': dtype('int64')}
+2025-02-16 12:09:12,452 - INFO - Luxury category distribution: {0: 1}
+2025-02-16 12:09:12,454 - INFO - type             object
+make             object
+year              int64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 12:09:12,463 - INFO - type             object
+make             object
+year            float64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 12:09:12,466 - INFO -           type       make    year     model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  convertible  chevrolet  2023.0  corvette          20.0     4  8 cyl    automatic        4wd  gasoline     16.5             0
+2025-02-16 12:09:12,495 - INFO - Predicted price: 78022.78
+2025-02-16 12:09:12,495 - INFO - Predicted price: 78022.78
+2025-02-16 12:09:12,495 - INFO - 127.0.0.1 - - [16/Feb/2025 12:09:12] "POST /sell HTTP/1.1" 200 -
+2025-02-16 12:09:15,128 - INFO - Sell endpoint accessed. Method: POST
+2025-02-16 12:09:15,300 - INFO - Received POST request with action: getCarPrice
+2025-02-16 12:09:15,313 - INFO - Features extracted before prediction: [{'action': 'getCarPrice', 'type': 'Convertible', 'make': 'chevrolet', 'model': 'corvette', 'miles_driven': '20', 'city_mpg': '16', 'hwy_mpg': '17', 'year': '2023', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': '4WD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '1', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '0', 'traction_control': '0', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '0', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '0', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 16.5}]
+2025-02-16 12:09:15,316 - INFO - Received features for prediction: [{'action': 'getCarPrice', 'type': 'Convertible', 'make': 'chevrolet', 'model': 'corvette', 'miles_driven': '20', 'city_mpg': '16', 'hwy_mpg': '17', 'year': '2023', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': '4WD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '1', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '0', 'traction_control': '0', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '0', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '0', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 16.5}]
+2025-02-16 12:09:15,316 - INFO -           type       make  year     model  miles_driven  ... tow_hitch_package rear_seat_entertainment avg_mpg bin_sum lux_category
+0  convertible  chevrolet  2023  corvette          20.0  ...                 0                       0    16.5       1            0
+
+[1 rows x 43 columns]
+2025-02-16 12:09:15,386 - INFO - (1, 43)
+2025-02-16 12:09:15,386 - INFO -           type       make  year     model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  convertible  chevrolet  2023  corvette          20.0     4  8 Cyl    Automatic        4WD  Gasoline     16.5             0
+2025-02-16 12:09:15,421 - INFO - (1, 12)
+2025-02-16 12:09:15,421 - INFO - Processed feature values before prediction: [{'type': 'convertible', 'make': 'chevrolet', 'year': 2023, 'model': 'corvette', 'miles_driven': 20.0, 'doors': '4', 'engine': '8 Cyl', 'transmission': 'Automatic', 'drive_type': '4WD', 'fuel': 'Gasoline', 'avg_mpg': 16.5, 'lux_category': 0}]
+2025-02-16 12:09:15,421 - INFO - Feature data types: {'type': dtype('O'), 'make': dtype('O'), 'year': dtype('int32'), 'model': dtype('O'), 'miles_driven': dtype('float64'), 'doors': dtype('O'), 'engine': dtype('O'), 'transmission': dtype('O'), 'drive_type': dtype('O'), 'fuel': dtype('O'), 'avg_mpg': dtype('float64'), 'lux_category': dtype('int64')}
+2025-02-16 12:09:15,421 - INFO - Luxury category distribution: {0: 1}
+2025-02-16 12:09:15,421 - INFO - type             object
+make             object
+year              int64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 12:09:15,421 - INFO - type             object
+make             object
+year            float64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 12:09:15,433 - INFO -           type       make    year     model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  convertible  chevrolet  2023.0  corvette          20.0     4  8 cyl    automatic        4wd  gasoline     16.5             0
+2025-02-16 12:09:15,482 - INFO - Predicted price: 78022.78
+2025-02-16 12:09:15,483 - INFO - Predicted price: 78022.78
+2025-02-16 12:09:15,487 - INFO - 127.0.0.1 - - [16/Feb/2025 12:09:15] "POST /sell HTTP/1.1" 200 -
+2025-02-16 12:09:17,906 - INFO - Sell endpoint accessed. Method: POST
+2025-02-16 12:09:18,081 - INFO - Received POST request with action: getCarPrice
+2025-02-16 12:09:18,093 - INFO - Features extracted before prediction: [{'action': 'getCarPrice', 'type': 'Convertible', 'make': 'chevrolet', 'model': 'corvette', 'miles_driven': '20', 'city_mpg': '16', 'hwy_mpg': '17', 'year': '2023', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': '4WD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '0', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '0', 'traction_control': '0', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '0', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '0', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 16.5}]
+2025-02-16 12:09:18,098 - INFO - Received features for prediction: [{'action': 'getCarPrice', 'type': 'Convertible', 'make': 'chevrolet', 'model': 'corvette', 'miles_driven': '20', 'city_mpg': '16', 'hwy_mpg': '17', 'year': '2023', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': '4WD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '0', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '0', 'traction_control': '0', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '0', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '0', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 16.5}]
+2025-02-16 12:09:18,121 - INFO -           type       make  year     model  miles_driven  ... tow_hitch_package rear_seat_entertainment avg_mpg bin_sum lux_category
+0  convertible  chevrolet  2023  corvette          20.0  ...                 0                       0    16.5       0            0
+
+[1 rows x 43 columns]
+2025-02-16 12:09:18,185 - INFO - (1, 43)
+2025-02-16 12:09:18,185 - INFO -           type       make  year     model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  convertible  chevrolet  2023  corvette          20.0     4  8 Cyl    Automatic        4WD  Gasoline     16.5             0
+2025-02-16 12:09:18,217 - INFO - (1, 12)
+2025-02-16 12:09:18,219 - INFO - Processed feature values before prediction: [{'type': 'convertible', 'make': 'chevrolet', 'year': 2023, 'model': 'corvette', 'miles_driven': 20.0, 'doors': '4', 'engine': '8 Cyl', 'transmission': 'Automatic', 'drive_type': '4WD', 'fuel': 'Gasoline', 'avg_mpg': 16.5, 'lux_category': 0}]
+2025-02-16 12:09:18,221 - INFO - Feature data types: {'type': dtype('O'), 'make': dtype('O'), 'year': dtype('int32'), 'model': dtype('O'), 'miles_driven': dtype('float64'), 'doors': dtype('O'), 'engine': dtype('O'), 'transmission': dtype('O'), 'drive_type': dtype('O'), 'fuel': dtype('O'), 'avg_mpg': dtype('float64'), 'lux_category': dtype('int64')}
+2025-02-16 12:09:18,223 - INFO - Luxury category distribution: {0: 1}
+2025-02-16 12:09:18,225 - INFO - type             object
+make             object
+year              int64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 12:09:18,233 - INFO - type             object
+make             object
+year            float64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 12:09:18,236 - INFO -           type       make    year     model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  convertible  chevrolet  2023.0  corvette          20.0     4  8 cyl    automatic        4wd  gasoline     16.5             0
+2025-02-16 12:09:18,254 - INFO - Predicted price: 78022.78
+2025-02-16 12:09:18,254 - INFO - Predicted price: 78022.78
+2025-02-16 12:09:18,268 - INFO - 127.0.0.1 - - [16/Feb/2025 12:09:18] "POST /sell HTTP/1.1" 200 -
+2025-02-16 12:09:23,477 - INFO - Sell endpoint accessed. Method: POST
+2025-02-16 12:09:23,632 - INFO - Received POST request with action: getCarPrice
+2025-02-16 12:09:23,635 - INFO - Features extracted before prediction: [{'action': 'getCarPrice', 'type': 'Convertible', 'make': 'chevrolet', 'model': 'corvette', 'miles_driven': '20', 'city_mpg': '16', 'hwy_mpg': '17', 'year': '2023', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': '4WD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '0', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '0', 'traction_control': '0', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '0', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '0', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 16.5}]
+2025-02-16 12:09:23,635 - INFO - Received features for prediction: [{'action': 'getCarPrice', 'type': 'Convertible', 'make': 'chevrolet', 'model': 'corvette', 'miles_driven': '20', 'city_mpg': '16', 'hwy_mpg': '17', 'year': '2023', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': '4WD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '0', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '0', 'traction_control': '0', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '0', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '0', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 16.5}]
+2025-02-16 12:09:23,657 - INFO -           type       make  year     model  miles_driven  ... tow_hitch_package rear_seat_entertainment avg_mpg bin_sum lux_category
+0  convertible  chevrolet  2023  corvette          20.0  ...                 0                       0    16.5       0            0
+
+[1 rows x 43 columns]
+2025-02-16 12:09:23,710 - INFO - (1, 43)
+2025-02-16 12:09:23,711 - INFO -           type       make  year     model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  convertible  chevrolet  2023  corvette          20.0     4  8 Cyl    Automatic        4WD  Gasoline     16.5             0
+2025-02-16 12:09:23,727 - INFO - (1, 12)
+2025-02-16 12:09:23,728 - INFO - Processed feature values before prediction: [{'type': 'convertible', 'make': 'chevrolet', 'year': 2023, 'model': 'corvette', 'miles_driven': 20.0, 'doors': '4', 'engine': '8 Cyl', 'transmission': 'Automatic', 'drive_type': '4WD', 'fuel': 'Gasoline', 'avg_mpg': 16.5, 'lux_category': 0}]
+2025-02-16 12:09:23,728 - INFO - Feature data types: {'type': dtype('O'), 'make': dtype('O'), 'year': dtype('int32'), 'model': dtype('O'), 'miles_driven': dtype('float64'), 'doors': dtype('O'), 'engine': dtype('O'), 'transmission': dtype('O'), 'drive_type': dtype('O'), 'fuel': dtype('O'), 'avg_mpg': dtype('float64'), 'lux_category': dtype('int64')}
+2025-02-16 12:09:23,729 - INFO - Luxury category distribution: {0: 1}
+2025-02-16 12:09:23,730 - INFO - type             object
+make             object
+year              int64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 12:09:23,735 - INFO - type             object
+make             object
+year            float64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 12:09:23,735 - INFO -           type       make    year     model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  convertible  chevrolet  2023.0  corvette          20.0     4  8 cyl    automatic        4wd  gasoline     16.5             0
+2025-02-16 12:09:23,769 - INFO - Predicted price: 78022.78
+2025-02-16 12:09:23,769 - INFO - Predicted price: 78022.78
+2025-02-16 12:09:23,769 - INFO - 127.0.0.1 - - [16/Feb/2025 12:09:23] "POST /sell HTTP/1.1" 200 -
+2025-02-16 12:14:13,039 - INFO - Sell endpoint accessed. Method: GET
+2025-02-16 12:14:13,280 - INFO - 127.0.0.1 - - [16/Feb/2025 12:14:13] "GET /sell HTTP/1.1" 200 -
+2025-02-16 12:14:13,404 - INFO - 127.0.0.1 - - [16/Feb/2025 12:14:13] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:14:13,421 - INFO - 127.0.0.1 - - [16/Feb/2025 12:14:13] "[36mGET /static/assets/sell/sell-landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:14:13,427 - INFO - 127.0.0.1 - - [16/Feb/2025 12:14:13] "[36mGET /static/assets/sell/animation_scroll_down.gif HTTP/1.1[0m" 304 -
+2025-02-16 12:14:13,439 - INFO - 127.0.0.1 - - [16/Feb/2025 12:14:13] "[36mGET /static/yearpicker.css HTTP/1.1[0m" 304 -
+2025-02-16 12:14:13,468 - INFO - 127.0.0.1 - - [16/Feb/2025 12:14:13] "[36mGET /static/yearpicker.js HTTP/1.1[0m" 304 -
+2025-02-16 12:14:13,712 - INFO - 127.0.0.1 - - [16/Feb/2025 12:14:13] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-02-16 12:15:02,659 - INFO -  * Detected change in 'C:\\Users\\sudhe\\Downloads\\Used-car-price-main\\Used-car-price-main\\app\\model\\predict.py', reloading
+2025-02-16 12:15:02,864 - INFO -  * Restarting with stat
+2025-02-16 12:15:04,752 - INFO - Logging initialized successfully.
+2025-02-16 12:15:04,752 - WARNING -  * Debugger is active!
+2025-02-16 12:15:04,767 - INFO -  * Debugger PIN: 118-817-590
+2025-02-16 12:15:41,696 - INFO - Logging initialized successfully.
+2025-02-16 12:15:41,723 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-16 12:15:41,724 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-16 12:15:41,724 - INFO -  * Restarting with stat
+2025-02-16 12:15:43,252 - INFO - Logging initialized successfully.
+2025-02-16 12:15:43,265 - WARNING -  * Debugger is active!
+2025-02-16 12:15:43,267 - INFO -  * Debugger PIN: 118-817-590
+2025-02-16 12:15:43,469 - INFO - 127.0.0.1 - - [16/Feb/2025 12:15:43] "GET / HTTP/1.1" 200 -
+2025-02-16 12:15:43,556 - INFO - 127.0.0.1 - - [16/Feb/2025 12:15:43] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:15:43,568 - INFO - 127.0.0.1 - - [16/Feb/2025 12:15:43] "[36mGET /static/assets/landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:15:43,780 - INFO - 127.0.0.1 - - [16/Feb/2025 12:15:43] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-02-16 12:16:05,351 - INFO - 127.0.0.1 - - [16/Feb/2025 12:16:05] "[36mGET /static/assets/buy/pickups.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:16:05,351 - INFO - 127.0.0.1 - - [16/Feb/2025 12:16:05] "[36mGET /static/assets/buy/hatchback.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:16:05,352 - INFO - 127.0.0.1 - - [16/Feb/2025 12:16:05] "[36mGET /static/assets/buy/suv.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:16:05,352 - INFO - 127.0.0.1 - - [16/Feb/2025 12:16:05] "[36mGET /static/assets/buy/coupe.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:16:06,322 - INFO - 127.0.0.1 - - [16/Feb/2025 12:16:06] "[36mGET /static/assets/buy/minivan.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:16:06,322 - INFO - 127.0.0.1 - - [16/Feb/2025 12:16:06] "[36mGET /static/assets/buy/sedan.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:16:06,322 - INFO - 127.0.0.1 - - [16/Feb/2025 12:16:06] "[36mGET /static/assets/buy/convertible.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:16:06,322 - INFO - 127.0.0.1 - - [16/Feb/2025 12:16:06] "[36mGET /static/assets/buy/wagon.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:16:06,399 - INFO - 127.0.0.1 - - [16/Feb/2025 12:16:06] "[36mGET /static/assets/buy/sell-car.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:17:33,696 - INFO - Sell endpoint accessed. Method: GET
+2025-02-16 12:17:33,914 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:33] "GET /sell HTTP/1.1" 200 -
+2025-02-16 12:17:33,989 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:33] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:17:33,992 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:33] "[36mGET /static/assets/sell/sell-landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:17:33,995 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:33] "[36mGET /static/assets/sell/animation_scroll_down.gif HTTP/1.1[0m" 304 -
+2025-02-16 12:17:34,069 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:34] "[36mGET /static/yearpicker.css HTTP/1.1[0m" 304 -
+2025-02-16 12:17:34,100 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:34] "[36mGET /static/yearpicker.js HTTP/1.1[0m" 304 -
+2025-02-16 12:17:54,619 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:54] "GET / HTTP/1.1" 200 -
+2025-02-16 12:17:54,664 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:54] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:17:54,671 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:54] "[36mGET /static/assets/landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:17:55,843 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:55] "[36mGET /static/assets/buy/pickups.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:17:55,846 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:55] "[36mGET /static/assets/buy/suv.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:17:55,860 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:55] "[36mGET /static/assets/buy/convertible.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:17:55,863 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:55] "[36mGET /static/assets/buy/sedan.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:17:55,870 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:55] "[36mGET /static/assets/buy/coupe.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:17:55,880 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:55] "[36mGET /static/assets/buy/minivan.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:17:55,880 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:55] "[36mGET /static/assets/buy/hatchback.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:17:55,899 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:55] "[36mGET /static/assets/buy/wagon.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:17:56,038 - INFO - 127.0.0.1 - - [16/Feb/2025 12:17:56] "[36mGET /static/assets/buy/sell-car.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:01,054 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:01] "POST /results HTTP/1.1" 200 -
+2025-02-16 12:18:01,095 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:01] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:18:01,162 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:01] "[36mGET /static/assets/results/bmw_2-series_2021.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:01,165 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:01] "[36mGET /static/assets/results/mazda_miata_2023.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:01,165 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:01] "[36mGET /static/assets/results/ford_mustang_2022.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:01,168 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:01] "[36mGET /static/assets/results/fiat_124-spider_2020.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:01,172 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:01] "[36mGET /static/assets/results/mazda_miata_2022.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:01,178 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:01] "[36mGET /static/assets/results/fiat_124-spider_2018.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:01,203 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:01] "[36mGET /static/assets/results/chevrolet_camaro_2021.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:01,208 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:01] "[36mGET /static/assets/results/fiat_124-spider_2017.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:01,229 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:01] "[36mGET /static/assets/results/chevrolet_corvette_2016.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:01,230 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:01] "[36mGET /static/assets/results/chevrolet_camaro_2023.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:01,258 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:01] "[36mGET /static/assets/results/bmw_z4_2020.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:01,259 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:01] "[36mGET /static/assets/results/mini_cooper_2019.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:02,304 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "[36mGET /static/assets/results/mazda_miata_2016.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:02,308 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "GET /static/assets/results/chevrolet_camaro_2013.webp HTTP/1.1" 200 -
+2025-02-16 12:18:02,310 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "[36mGET /static/assets/results/ford_mustang_2014.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:02,335 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "[36mGET /static/assets/results/chevrolet_camaro_2016.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:02,347 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "[36mGET /static/assets/results/ford_mustang_2021.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:02,351 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "[36mGET /static/assets/results/chevrolet_corvette_2015.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:02,368 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "GET /static/assets/results/ford_mustang_2019.webp HTTP/1.1" 200 -
+2025-02-16 12:18:02,373 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "GET /static/assets/results/ford_mustang_2015.webp HTTP/1.1" 200 -
+2025-02-16 12:18:02,437 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "GET /static/assets/results/mazda_miata_2015.webp HTTP/1.1" 200 -
+2025-02-16 12:18:02,496 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "GET /static/assets/results/ford_mustang_2018.webp HTTP/1.1" 200 -
+2025-02-16 12:18:02,524 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "[36mGET /static/assets/results/audi_a5_2018.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:02,528 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "GET /static/assets/results/ford_mustang_2020.webp HTTP/1.1" 200 -
+2025-02-16 12:18:02,540 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "GET /static/assets/results/buick_cascada_2016.webp HTTP/1.1" 200 -
+2025-02-16 12:18:02,570 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "GET /static/assets/results/bmw_3-series_2013.webp HTTP/1.1" 200 -
+2025-02-16 12:18:02,631 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "GET /static/assets/results/ford_mustang_2017.webp HTTP/1.1" 200 -
+2025-02-16 12:18:02,644 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:02] "GET /static/assets/results/chevrolet_camaro_2015.webp HTTP/1.1" 200 -
+2025-02-16 12:18:03,799 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:03] "POST /results-view HTTP/1.1" 200 -
+2025-02-16 12:18:03,832 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:03] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:18:03,898 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:03] "[36mGET /static/assets/results/chevrolet_camaro_2013.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:04,809 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:04] "[36mGET /static/assets/results/chevrolet_camaro_2016.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:04,828 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:04] "GET /static/assets/results/chevrolet_camaro_2017.webp HTTP/1.1" 200 -
+2025-02-16 12:18:06,834 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:06] "POST /results-view HTTP/1.1" 200 -
+2025-02-16 12:18:06,878 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:06] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:18:06,895 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:06] "[36mGET /static/assets/results/chevrolet_camaro_2017.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:07,835 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:07] "[36mGET /static/assets/results/chevrolet_camaro_2016.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:07,850 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:07] "GET /static/assets/results/chevrolet_camaro_2020.webp HTTP/1.1" 200 -
+2025-02-16 12:18:10,331 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:10] "POST /results-view HTTP/1.1" 200 -
+2025-02-16 12:18:10,360 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:10] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:18:10,385 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:10] "[36mGET /static/assets/results/chevrolet_camaro_2020.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:11,237 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:11] "[36mGET /static/assets/results/chevrolet_camaro_2021.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:13,060 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:13] "POST /results-view HTTP/1.1" 200 -
+2025-02-16 12:18:13,095 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:13] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:18:13,113 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:13] "[36mGET /static/assets/results/chevrolet_camaro_2021.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:16,550 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:16] "POST /results-view HTTP/1.1" 200 -
+2025-02-16 12:18:16,587 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:16] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:18:16,643 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:16] "[36mGET /static/assets/results/chevrolet_camaro_2021.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:19,774 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:19] "[36mGET /static/assets/results/chevrolet_camaro_2021.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:21,451 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:21] "[36mGET /static/assets/results/chevrolet_camaro_2020.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:21,451 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:21] "[36mGET /static/assets/results/chevrolet_camaro_2016.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:22,355 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:22] "[36mGET /static/assets/results/chevrolet_camaro_2016.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:22,356 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:22] "[36mGET /static/assets/results/chevrolet_camaro_2017.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:33,491 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:33] "POST /results HTTP/1.1" 200 -
+2025-02-16 12:18:33,543 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:33] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:18:33,648 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:33] "[36mGET /static/assets/results/hyundai_elantra_2023.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:33,649 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:33] "[36mGET /static/assets/results/hyundai_elantra_2022.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:33,650 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:33] "[36mGET /static/assets/results/hyundai_elantra_2019.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:33,654 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:33] "[36mGET /static/assets/results/hyundai_elantra_2020.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:33,657 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:33] "[36mGET /static/assets/results/hyundai_elantra_2021.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:33,672 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:33] "[36mGET /static/assets/results/hyundai_elantra_2017.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:33,728 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:33] "[36mGET /static/assets/results/hyundai_elantra_2016.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:36,035 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:36] "POST /results-view HTTP/1.1" 200 -
+2025-02-16 12:18:36,063 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:36] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:18:36,085 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:36] "[36mGET /static/assets/results/hyundai_elantra_2023.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:48,306 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:48] "GET / HTTP/1.1" 200 -
+2025-02-16 12:18:48,337 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:48] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:18:48,346 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:48] "[36mGET /static/assets/landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:49,467 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:49] "[36mGET /static/assets/buy/hatchback.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:49,471 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:49] "[36mGET /static/assets/buy/suv.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:49,481 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:49] "[36mGET /static/assets/buy/pickups.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:49,483 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:49] "[36mGET /static/assets/buy/coupe.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:49,576 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:49] "[36mGET /static/assets/buy/sedan.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:49,578 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:49] "[36mGET /static/assets/buy/convertible.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:49,586 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:49] "[36mGET /static/assets/buy/minivan.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:18:49,588 - INFO - 127.0.0.1 - - [16/Feb/2025 12:18:49] "[36mGET /static/assets/buy/wagon.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:19:36,516 - INFO - 127.0.0.1 - - [16/Feb/2025 12:19:36] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:22:00,882 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:00] "GET / HTTP/1.1" 200 -
+2025-02-16 12:22:00,919 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:00] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:22:00,928 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:00] "[36mGET /static/assets/landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:22:02,138 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:02] "[36mGET /static/assets/buy/pickups.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:22:02,139 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:02] "[36mGET /static/assets/buy/suv.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:22:02,139 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:02] "[36mGET /static/assets/buy/hatchback.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:22:02,147 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:02] "[36mGET /static/assets/buy/coupe.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:22:02,280 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:02] "[36mGET /static/assets/buy/sedan.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:22:02,281 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:02] "[36mGET /static/assets/buy/convertible.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:22:02,285 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:02] "[36mGET /static/assets/buy/minivan.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:22:02,285 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:02] "[36mGET /static/assets/buy/wagon.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:22:05,041 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:05] "[36mGET /static/assets/buy/sell-car.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:22:07,061 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:07] "GET / HTTP/1.1" 200 -
+2025-02-16 12:22:07,098 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:07] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:22:07,106 - INFO - 127.0.0.1 - - [16/Feb/2025 12:22:07] "[36mGET /static/assets/landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:34:26,599 - INFO - 127.0.0.1 - - [16/Feb/2025 12:34:26] "[36mGET /static/assets/buy/pickups.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:34:26,600 - INFO - 127.0.0.1 - - [16/Feb/2025 12:34:26] "[36mGET /static/assets/buy/suv.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:34:26,606 - INFO - 127.0.0.1 - - [16/Feb/2025 12:34:26] "[36mGET /static/assets/buy/hatchback.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:34:26,607 - INFO - 127.0.0.1 - - [16/Feb/2025 12:34:26] "[36mGET /static/assets/buy/coupe.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:36:04,499 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:04] "GET / HTTP/1.1" 200 -
+2025-02-16 12:36:04,536 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:04] "[36mGET /static/assets/landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:36:04,547 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:04] "GET /static/css/main.css HTTP/1.1" 200 -
+2025-02-16 12:36:05,112 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:05] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-02-16 12:36:12,759 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:12] "GET / HTTP/1.1" 200 -
+2025-02-16 12:36:12,789 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:12] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 12:36:12,796 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:12] "[36mGET /static/assets/landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:36:12,878 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:12] "[36mGET /static/favicon.ico HTTP/1.1[0m" 304 -
+2025-02-16 12:36:17,921 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:17] "[36mGET /static/assets/buy/pickups.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:36:17,925 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:17] "[36mGET /static/assets/buy/suv.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:36:17,926 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:17] "[36mGET /static/assets/buy/hatchback.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:36:17,935 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:17] "[36mGET /static/assets/buy/coupe.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:36:18,998 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:18] "[36mGET /static/assets/buy/sedan.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:36:18,999 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:18] "[36mGET /static/assets/buy/convertible.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:36:19,020 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:19] "[36mGET /static/assets/buy/minivan.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:36:19,026 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:19] "[36mGET /static/assets/buy/wagon.webp HTTP/1.1[0m" 304 -
+2025-02-16 12:36:19,608 - INFO - 127.0.0.1 - - [16/Feb/2025 12:36:19] "[36mGET /static/assets/buy/sell-car.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:01:37,781 - INFO - Logging initialized successfully.
+2025-02-16 13:01:37,812 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-16 13:01:37,813 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-16 13:01:37,814 - INFO -  * Restarting with stat
+2025-02-16 13:01:39,270 - INFO - Logging initialized successfully.
+2025-02-16 13:01:39,270 - WARNING -  * Debugger is active!
+2025-02-16 13:01:39,281 - INFO -  * Debugger PIN: 118-817-590
+2025-02-16 13:01:44,478 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:44] "GET / HTTP/1.1" 200 -
+2025-02-16 13:01:44,600 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:44] "[36mGET /static/assets/landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:01:44,606 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:44] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 13:01:49,895 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:49] "POST /results HTTP/1.1" 200 -
+2025-02-16 13:01:49,930 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:49] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 13:01:50,014 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:50] "[36mGET /static/assets/results/cadillac_xt6_2023.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:01:51,397 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:51] "POST /results-view HTTP/1.1" 200 -
+2025-02-16 13:01:51,432 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:51] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 13:01:51,462 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:51] "[36mGET /static/assets/results/cadillac_xt6_2023.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:01:59,645 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:59] "POST /results HTTP/1.1" 200 -
+2025-02-16 13:01:59,679 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:59] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 13:01:59,715 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:59] "[36mGET /static/assets/results/hyundai_elantra_2023.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:01:59,718 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:59] "[36mGET /static/assets/results/hyundai_elantra_2021.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:01:59,732 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:59] "[36mGET /static/assets/results/hyundai_elantra_2022.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:01:59,737 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:59] "[36mGET /static/assets/results/hyundai_elantra_2019.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:01:59,753 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:59] "[36mGET /static/assets/results/hyundai_elantra_2020.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:01:59,755 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:59] "[36mGET /static/assets/results/hyundai_elantra_2017.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:01:59,773 - INFO - 127.0.0.1 - - [16/Feb/2025 13:01:59] "[36mGET /static/assets/results/hyundai_elantra_2016.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:02:01,313 - INFO - 127.0.0.1 - - [16/Feb/2025 13:02:01] "POST /results-view HTTP/1.1" 200 -
+2025-02-16 13:02:01,321 - INFO - 127.0.0.1 - - [16/Feb/2025 13:02:01] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 13:02:01,358 - INFO - 127.0.0.1 - - [16/Feb/2025 13:02:01] "[36mGET /static/assets/results/hyundai_elantra_2021.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:02:02,192 - INFO - 127.0.0.1 - - [16/Feb/2025 13:02:02] "[36mGET /static/assets/results/hyundai_elantra_2023.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:02:06,127 - INFO - Sell endpoint accessed. Method: GET
+2025-02-16 13:02:06,317 - INFO - 127.0.0.1 - - [16/Feb/2025 13:02:06] "GET /sell HTTP/1.1" 200 -
+2025-02-16 13:02:06,347 - INFO - 127.0.0.1 - - [16/Feb/2025 13:02:06] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 13:02:06,352 - INFO - 127.0.0.1 - - [16/Feb/2025 13:02:06] "[36mGET /static/assets/sell/sell-landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:02:06,354 - INFO - 127.0.0.1 - - [16/Feb/2025 13:02:06] "[36mGET /static/assets/sell/animation_scroll_down.gif HTTP/1.1[0m" 304 -
+2025-02-16 13:02:06,366 - INFO - 127.0.0.1 - - [16/Feb/2025 13:02:06] "[36mGET /static/yearpicker.css HTTP/1.1[0m" 304 -
+2025-02-16 13:02:06,368 - INFO - 127.0.0.1 - - [16/Feb/2025 13:02:06] "[36mGET /static/yearpicker.js HTTP/1.1[0m" 304 -
+2025-02-16 13:02:08,662 - INFO - Sell endpoint accessed. Method: POST
+2025-02-16 13:02:08,904 - INFO - Received POST request with action: getCarMake
+2025-02-16 13:02:08,904 - INFO - Fetching car makes for car type: Coupe
+2025-02-16 13:02:08,906 - INFO - 127.0.0.1 - - [16/Feb/2025 13:02:08] "POST /sell HTTP/1.1" 200 -
+2025-02-16 13:02:10,175 - INFO - Sell endpoint accessed. Method: POST
+2025-02-16 13:02:10,447 - INFO - Received POST request with action: getCarModel
+2025-02-16 13:02:10,447 - INFO - Fetching car models for make: lexus and type: Coupe
+2025-02-16 13:02:10,453 - INFO - 127.0.0.1 - - [16/Feb/2025 13:02:10] "POST /sell HTTP/1.1" 200 -
+2025-02-16 13:02:28,313 - INFO - Sell endpoint accessed. Method: POST
+2025-02-16 13:02:28,485 - INFO - Received POST request with action: getCarPrice
+2025-02-16 13:02:28,495 - INFO - Features extracted before prediction: [{'action': 'getCarPrice', 'type': 'Coupe', 'make': 'lexus', 'model': 'rc', 'miles_driven': '6', 'city_mpg': '6', 'hwy_mpg': '6', 'year': '2020', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': 'AWD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '0', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '0', 'traction_control': '0', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '0', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '0', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 6.0}]
+2025-02-16 13:02:28,495 - INFO - Received features for prediction: [{'action': 'getCarPrice', 'type': 'Coupe', 'make': 'lexus', 'model': 'rc', 'miles_driven': '6', 'city_mpg': '6', 'hwy_mpg': '6', 'year': '2020', 'doors': '4', 'transmission': 'Automatic', 'engine': '8 Cyl', 'drive_type': 'AWD', 'fuel': 'Gasoline', 'android_auto': '0', 'apple_carplay': '0', 'backup_camera_assist': '0', 'bluetooth': '0', 'heated_seats': '0', 'hill_assist_system': '0', 'keyless_entry': '0', 'keyless_ignition': '0', 'multimedia_telematics': '0', 'premium_sound_system': '0', 'satellite_radio': '0', 'sunroof_moonroof': '0', 'leather_seats': '0', 'power_seats': '0', 'traction_control': '0', 'driver_assistance_confidence_pkg': '0', 'head-up_display': '0', 'lane_departure_warning': '0', 'navigation_system': '0', 'remote_start': '0', 'blind_spot_monitor': '0', 'lane_assist': '0', 'parking_assist_system': '0', 'stability_control': '0', 'adaptive_cruise_control': '0', 'alloy_wheels': '0', 'cooled_seats': '0', 'full_self-driving_capability': '0', 'third_row_seating': '0', 'tow_hitch_package': '0', 'rear_seat_entertainment': '0', 'avg_mpg': 6.0}]
+2025-02-16 13:02:28,514 - INFO -     type   make  year model  miles_driven doors  ... third_row_seating tow_hitch_package rear_seat_entertainment avg_mpg  bin_sum  lux_category
+0  coupe  lexus  2020    rc           6.0     4  ...                 0                 0                       0     6.0        0             0
+
+[1 rows x 43 columns]
+2025-02-16 13:02:28,571 - INFO - (1, 43)
+2025-02-16 13:02:28,572 - INFO -     type   make  year model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  coupe  lexus  2020    rc           6.0     4  8 Cyl    Automatic        AWD  Gasoline      6.0             0
+2025-02-16 13:02:28,593 - INFO - (1, 12)
+2025-02-16 13:02:28,595 - INFO - Processed feature values before prediction: [{'type': 'coupe', 'make': 'lexus', 'year': 2020, 'model': 'rc', 'miles_driven': 6.0, 'doors': '4', 'engine': '8 Cyl', 'transmission': 'Automatic', 'drive_type': 'AWD', 'fuel': 'Gasoline', 'avg_mpg': 6.0, 'lux_category': 0}]
+2025-02-16 13:02:28,596 - INFO - Feature data types: {'type': dtype('O'), 'make': dtype('O'), 'year': dtype('int32'), 'model': dtype('O'), 'miles_driven': dtype('float64'), 'doors': dtype('O'), 'engine': dtype('O'), 'transmission': dtype('O'), 'drive_type': dtype('O'), 'fuel': dtype('O'), 'avg_mpg': dtype('float64'), 'lux_category': dtype('int64')}
+2025-02-16 13:02:28,597 - INFO - Luxury category distribution: {0: 1}
+2025-02-16 13:02:28,599 - INFO - type             object
+make             object
+year              int64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 13:02:28,600 - INFO - type             object
+make             object
+year            float64
+model            object
+miles_driven    float64
+doors            object
+engine           object
+transmission     object
+drive_type       object
+fuel             object
+avg_mpg         float64
+lux_category      int64
+dtype: object
+2025-02-16 13:02:28,606 - INFO -     type   make    year model  miles_driven doors engine transmission drive_type      fuel  avg_mpg  lux_category
+0  coupe  lexus  2020.0    rc           6.0     4  8 cyl    automatic        awd  gasoline      6.0             0
+2025-02-16 13:02:28,648 - INFO - Predicted price: 63407.166
+2025-02-16 13:02:28,648 - INFO - Predicted price: 63407.166
+2025-02-16 13:02:28,648 - INFO - 127.0.0.1 - - [16/Feb/2025 13:02:28] "POST /sell HTTP/1.1" 200 -
+2025-02-16 13:02:28,679 - INFO - 127.0.0.1 - - [16/Feb/2025 13:02:28] "[36mGET /static/assets/loading.gif HTTP/1.1[0m" 304 -
+2025-02-16 13:05:22,939 - INFO - Logging initialized successfully.
+2025-02-16 13:05:22,963 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-16 13:05:22,966 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-16 13:05:22,969 - INFO -  * Restarting with stat
+2025-02-16 13:05:24,460 - INFO - Logging initialized successfully.
+2025-02-16 13:05:24,469 - WARNING -  * Debugger is active!
+2025-02-16 13:05:24,471 - INFO -  * Debugger PIN: 118-817-590
+2025-02-16 13:05:27,121 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:27] "GET / HTTP/1.1" 200 -
+2025-02-16 13:05:27,229 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:27] "[36mGET /static/assets/landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:27,236 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:27] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 13:05:28,425 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:28] "[36mGET /static/assets/buy/suv.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:28,425 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:28] "[36mGET /static/assets/buy/pickups.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:28,428 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:28] "[36mGET /static/assets/buy/hatchback.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:28,434 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:28] "[36mGET /static/assets/buy/coupe.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:28,559 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:28] "[36mGET /static/assets/buy/sedan.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:28,564 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:28] "[36mGET /static/assets/buy/convertible.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:28,573 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:28] "[36mGET /static/assets/buy/minivan.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:28,573 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:28] "[36mGET /static/assets/buy/wagon.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:29,176 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:29] "[36mGET /static/assets/buy/sell-car.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:30,154 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:30] "POST /results HTTP/1.1" 200 -
+2025-02-16 13:05:30,199 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:30] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 13:05:30,285 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:30] "[36mGET /static/assets/results/mazda_miata_2023.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:30,285 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:30] "[36mGET /static/assets/results/bmw_2-series_2021.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:30,285 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:30] "[36mGET /static/assets/results/ford_mustang_2022.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:30,291 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:30] "[36mGET /static/assets/results/fiat_124-spider_2020.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:30,297 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:30] "[36mGET /static/assets/results/mazda_miata_2022.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:30,317 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:30] "[36mGET /static/assets/results/fiat_124-spider_2018.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:30,357 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:30] "[36mGET /static/assets/results/chevrolet_camaro_2021.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:30,366 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:30] "[36mGET /static/assets/results/fiat_124-spider_2017.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:30,367 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:30] "[36mGET /static/assets/results/chevrolet_camaro_2023.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:30,379 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:30] "[36mGET /static/assets/results/chevrolet_corvette_2016.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:30,426 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:30] "[36mGET /static/assets/results/mini_cooper_2019.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:30,452 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:30] "[36mGET /static/assets/results/bmw_z4_2020.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:31,493 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:31] "POST /results-view HTTP/1.1" 200 -
+2025-02-16 13:05:31,522 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:31] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 13:05:31,565 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:31] "[36mGET /static/assets/results/bmw_2-series_2021.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:32,699 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:32] "[36mGET /static/assets/results/bmw_3-series_2013.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:40,690 - INFO - Sell endpoint accessed. Method: GET
+2025-02-16 13:05:40,891 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:40] "GET /sell HTTP/1.1" 200 -
+2025-02-16 13:05:40,915 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:40] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 13:05:40,922 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:40] "[36mGET /static/assets/sell/sell-landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:40,925 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:40] "[36mGET /static/assets/sell/animation_scroll_down.gif HTTP/1.1[0m" 304 -
+2025-02-16 13:05:40,944 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:40] "[36mGET /static/yearpicker.css HTTP/1.1[0m" 304 -
+2025-02-16 13:05:40,946 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:40] "[36mGET /static/yearpicker.js HTTP/1.1[0m" 304 -
+2025-02-16 13:05:43,868 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:43] "GET / HTTP/1.1" 200 -
+2025-02-16 13:05:43,914 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:43] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 13:05:43,922 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:43] "[36mGET /static/assets/landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:44,769 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:44] "[36mGET /static/assets/buy/pickups.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:44,773 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:44] "[36mGET /static/assets/buy/suv.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:44,785 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:44] "[36mGET /static/assets/buy/hatchback.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:44,788 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:44] "[36mGET /static/assets/buy/sedan.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:44,804 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:44] "[36mGET /static/assets/buy/coupe.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:44,808 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:44] "[36mGET /static/assets/buy/convertible.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:44,810 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:44] "[36mGET /static/assets/buy/wagon.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:44,813 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:44] "[36mGET /static/assets/buy/minivan.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:44,863 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:44] "[36mGET /static/assets/buy/sell-car.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:46,521 - INFO - Sell endpoint accessed. Method: GET
+2025-02-16 13:05:46,750 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:46] "GET /sell HTTP/1.1" 200 -
+2025-02-16 13:05:46,785 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:46] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+2025-02-16 13:05:46,794 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:46] "[36mGET /static/assets/sell/sell-landing.webp HTTP/1.1[0m" 304 -
+2025-02-16 13:05:46,796 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:46] "[36mGET /static/assets/sell/animation_scroll_down.gif HTTP/1.1[0m" 304 -
+2025-02-16 13:05:46,807 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:46] "[36mGET /static/yearpicker.css HTTP/1.1[0m" 304 -
+2025-02-16 13:05:46,811 - INFO - 127.0.0.1 - - [16/Feb/2025 13:05:46] "[36mGET /static/yearpicker.js HTTP/1.1[0m" 304 -

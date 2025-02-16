@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<!-- AutoComplete CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css"/>
+
+<!-- 🚗 Hero Section -->
+<div class="top-section">
+  <div class="container grid lg:grid-cols-2 grid-cols-1 lg:gap-24 gap-12 items-center justify-center lg:pt-24 pt-12 lg:pb-32 pb-16">
+    <div class="text-center lg:text-start">
+      <h1>Your Next Car is Just a Click Away <span class="text-orange-600">Buy & Sell with Confidence! </span></h1>
+      <p class="lg:pt-3 pt-1.5 text-slate-500">Search from our vast fleet of vehicles</p>
+
+      <!-- Search Bar -->
+      <div class="autoComplete_wrapper flex lg:justify-start justify-center lg:pt-6 pt-3">
+        <form action="/results" method="POST" id="searchForm">
+          <input id="autoComplete" type="search" name="search-term" value=""
+            placeholder="Search for Cars..."
+            class="border-orange-600 text-orange-600 rounded-lg px-4 py-2 w-64"
+            autocomplete="off" />
+          <input type="hidden" name="type" value="search"/>
+        </form>
+      </div>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="flex items-center justify-center">
+      <img src="../static/assets/landing.webp" alt="Car Search" class="w-full max-w-lg rounded-lg shadow-lg"/>
+    </div>
+  </div>
+</div>
+
+<!-- 🚙 View by Vehicle Type -->
+<div class="section bg-orange-gradient lg:py-24 py-12">
+  <div class="container">
+    <h2 class="text-center">View by Vehicle Type</h2>
+
+    <!-- Hidden Form for Vehicle Type Search -->
+    <form action="/results" method="POST" id="hiddenForm">
+      <input type="hidden" id="search-term-by-type" name="search-term" value=""/>
+      <input type="hidden" name="type" value="carType"/>
+    </form>
+
+    <!-- Vehicle Type Grid -->
+    <div class="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 lg:gap-6 gap-3 lg:pt-12 pt-6">
+      {% for car in carTypes %}
+      <a href="javascript:void(0);" onclick="submitCarType('{{ car.value }}')" 
+         class="shadow-md rounded-xl lg:p-4 p-2 hover:shadow-lg cursor-pointer bg-white group hover:scale-105 transition-transform">
+        <img data-src="../static/assets/buy/{{car.key}}.webp" 
+             alt="{{car.value}}" 
+             class="lazy-image w-full rounded-xl group-hover:scale-110 aspect-[49/37]"/>
+        <p class="text-center pt-2 font-semibold {% if car.invertText %}text-white{% endif %}">{{car.value}}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- 🚀 Sell Your Car Section -->
+<div class="lg:py-24 py-12">
+  <div class="grid lg:grid-cols-2 grid-cols-1 lg:gap-24 gap-12 container">
+    
+    <!-- Text Section -->
+    <div class="flex flex-col justify-center text-center lg:text-start">
+      <h2>Are you considering <span class="text-orange-600">selling your car?</span></h2>
+      <p class="lg:pt-3 pt-1.5">Get an instant appraisal in as little as <b>2 minutes</b></p>
+
+      <!-- Sell Car Button -->
+      <div class="flex lg:justify-start justify-center">
+        <a href="/sell" class="lg:pt-6 pt-3">
+          <button type="button" class="border-none text-center py-2 lg:px-5 px-3 transition lg:text-lg text-base font-semibold rounded-lg bg-cyan-400 hover:bg-cyan-600 text-white">
+            Sell Car
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <!-- Sell Car Image -->
+    <div class="flex justify-center">
+      <img data-src="../static/assets/buy/sell-car.webp" alt="Sell Car" class="lazy-image w-full max-w-xs aspect-[64/57]"/>
+    </div>
+  </div>
+</div>
+
+<!-- 🚀 JavaScript for AutoComplete and Form Submission -->
+<script>
+  let flaskData = {{ allCars|tojson }};
+  
+  // AutoComplete Setup
+  const autoCompleteJS = new autoComplete({
+    selector: "#autoComplete",
+    placeHolder: "Search for Cars...",
+    searchEngine: "strict",
+    threshold: 1,
+    data: { src: flaskData, cache: true },
+    resultsList: {
+      element: (list, data) => {
+        if (!data.results.length) {
+          const message = document.createElement("div");
+          message.setAttribute("class", "no_result");
+          message.innerHTML = `<span>No results found for "${data.query}"</span>`;
+          list.prepend(message);
+        }
+      },
+      noResults: true,
+    },
+    resultItem: { highlight: true },
+    events: {
+      input: {
+        selection: (event) => {
+          const selection = event.detail.selection.value;
+          autoCompleteJS.input.value = selection;
+          document.getElementById("searchForm").submit();
+        },
+      },
+    },
+  });
+
+  // Function to Submit Vehicle Type Form
+  function submitCarType(type) {
+    document.getElementById("search-term-by-type").value = type;
+    document.getElementById("hiddenForm").submit();
+  }
+</script>
+
+{% endblock %}

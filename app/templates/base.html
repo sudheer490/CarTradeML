@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{% block title %}Car Recommendation{% endblock %}</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/main.css')}}"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      .nav-sticky {
+        background: white;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+      }
+
+      .bg-shadow {
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+      }
+
+      .autoComplete_wrapper {
+        width: 100%;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 0.3s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="h-16 z-50 sticky top-0" id="navbar">
+      <div class="container h-full flex items-center justify-between">
+        <a
+          class="cursor-pointer flex items-center gap-1 hover:text-orange-600"
+          href="/"
+        >
+          <span class="material-symbols-rounded"> garage </span>
+          Garage_</a
+        >
+        <div class="flex gap-4 relative">
+          <a
+            class="hover:text-orange-600 cursor-pointer font-semibold w-fit"
+            href="/"
+            >BUY</a
+          >
+          <a
+            class="hover:text-orange-600 cursor-pointer font-semibold w-fit"
+            href="./sell"
+            >SELL</a
+          >
+        </div>
+      </div>
+    </nav>
+    {% block content %}{% endblock %}
+    <footer class="lg:py-6 py-3 bg-orange-gradient">
+      <div class="flex items-center justify-center">
+        <p class="text-orange-600 flex items-center gap-2">
+          © 2023
+          <!-- <span class="material-symbols-rounded"> garage </span> -->
+          Garage_
+        </p>
+      </div>
+    </footer>
+    <script>
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        window.scrollY > 10
+          ? navbar.classList.add("nav-sticky")
+          : navbar.classList.remove("nav-sticky");
+      });
+
+      // Create an Intersection Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // When an image is in the viewport, load it
+            const image = entry.target;
+            image.src = image.getAttribute("data-src");
+            image.classList.remove("lazy-image");
+            // observer.unobserve(image); // Stop observing once loaded
+          }
+        });
+      });
+
+      // Observe all elements with the class "lazy-image"
+      const lazyImages = document.querySelectorAll(".lazy-image");
+      lazyImages.forEach((image) => {
+        observer.observe(image);
+      });
+    </script>
+  </body>
+</html>

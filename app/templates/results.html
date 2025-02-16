@@ -1,0 +1,216 @@
+{% extends "base.html" %} {% block title %}Results{% endblock %} {% block
+content %}
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.02.min.css"
+/>
+
+<div
+  class="w-full lg:px-4 lg:pt-2 pt-2 lg:pb-6 pb-3 sticky z-50 top-16 bg-white border-b border-b-gray-300"
+>
+  <div class="container">
+    <div class="flex items-center gap-2">
+      <div class="autoComplete_wrapper w-full">
+        <form class="w-full" action="/results" method="POST" id="myForm">
+          <input
+            class="!w-full !rounded-lg !border-gray-300 hover:!border-orange-600"
+            id="autoComplete"
+            type="search"
+            dir="ltr"
+            spellcheck="false"
+            autocorrect="off"
+            autocomplete="off"
+            autocapitalize="off"
+            name="search-term"
+            value=""
+          />
+          <input type="hidden" name="type" value="search" />
+        </form>
+      </div>
+      <!-- <div
+      class="flex items-center gap-1 rounded-lg border border-gray-300 h-10 p-2 box-border cursor-pointer hover:bg-gray-50"
+      onclick="openDialog()"
+    >
+      <span class="material-symbols-rounded"> tune </span>
+      <p>Filters</p>
+    </div> -->
+    </div>
+  </div>
+</div>
+<div class="lg:py-6 py-6 bg-orange-gradient min-h-screen">
+  <div class="container">
+    <p>Showing results for <b>{{searchTerm}}</b></p>
+
+    <form action="/results-view" method="POST" id="hiddenForm">
+      <input type="hidden" id="product-id" name="productId" value="" />
+    </form>
+    <div
+      class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-6 gap-3 lg:pt-6 pt-3"
+    >
+      {% for car in results %}
+      <a
+        class="shadow-md rounded-lg hover:shadow-lg group hover:scale-105 hover:delay-75 transition-transform cursor-pointer bg-white overflow-hidden"
+        href="javascript:void(0);"
+        onclick="submitForm('{{ car.product_id }}')"
+      >
+        <img
+          data-src="../static/assets/results/{{car.path}}"
+          class="lazy-image w-full object-cover aspect-video duration-500 h-48 rounded-t-lg group-hover:scale-110"
+          alt="Lazy-loaded Image"
+        />
+        <div class="flex justify-between lg:p-4 p-2 bg-white relative">
+          <div>
+            <h5 class="font-semibold text-center">{{car.year}}</h5>
+            <h5 class="font-semibold text-center">{{car.name}}</h5>
+          </div>
+          <h5 class="font-semibold">${{car.price|int}}</h5>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<dialog
+  class="rounded-lg focus-visible:border-none focus-visible:outline-none min-w-[400px]"
+>
+  <div class="relative lg:py-4 py-2 lg:px-6 px-3 border-b h-16">
+    <span
+      class="material-symbols-rounded absolute top-3 left-2 cursor-pointer rounded-full p-2 hover:bg-gray-50"
+      onclick="closeDialog()"
+      >close</span
+    >
+    <h5 class="font-semibold text-center">Filters</h5>
+  </div>
+  <div class="lg:py-4 py-2 lg:px-6 px-3">
+    <form>
+      <p class="font-semibold">MILAGE</p>
+      <div class="flex justify-between items-center gap-2 pb-4 pt-1">
+        <div>
+          <label for="min-miles" class="text-sm">Min Miles</label>
+          <input
+            class="border border-gray-400 rounded p-2 w-full"
+            type="number"
+            placeholder="Mininum"
+            name="min-miles"
+            id="min-miles"
+          />
+        </div>
+        <div class="mt-6">-</div>
+        <div>
+          <label for="max-miles" class="text-sm">Max Miles</label>
+          <input
+            name="max-miles"
+            id="max-miles"
+            class="border border-gray-400 rounded p-2 w-full"
+            type="number"
+            placeholder="Maximum"
+          />
+        </div>
+      </div>
+
+      <div class="flex justify-end lg:pt-6 pt-5">
+        <button
+          type="submit"
+          class="whitespace-nowrap border-none text-center py-2 lg:px-5 px-3 transition lg:text-lg text-base font-semibold rounded-lg bg-cyan-400 hover:bg-cyan-600 text-white"
+        >
+          Apply
+        </button>
+      </div>
+    </form>
+  </div>
+  <!-- <form class="flex">
+    <div>
+      <input type="text" />
+    </div>
+    <div>
+      <button formmethod="dialog" type="submit">Cancel</button>
+      <button type="submit">Submit</button>
+    </div>
+  </form> -->
+</dialog>
+
+<script>
+    let allCarsList = {{allCars|tojson}};
+
+    const autoCompleteJS = new autoComplete({
+      selector: "#autoComplete",
+      placeHolder: "Search for Cars...",
+      searchEngine: "strict",
+      threshold: 1,
+      data: {
+        src: allCarsList,
+        cache: true,
+      },
+      resultsList: {
+        element: (list, data) => {
+          if (!data.results.length) {
+            const message = document.createElement("div");
+            message.setAttribute("class", "no_result");
+            message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
+            list.prepend(message);
+          }
+        },
+        noResults: true,
+      },
+      resultItem: {
+        highlight: true,
+      },
+      events: {
+        input: {
+          selection: (event) => {
+            console.log("HELLO");
+            const selection = event.detail.selection.value;
+            autoCompleteJS.input.value = selection;
+            document.getElementById("myForm").submit();
+          },
+        },
+      },
+    });
+
+    function submitForm(productId) {
+      console.log(productId)
+      document.getElementById("product-id").value = productId;
+      document.getElementById("hiddenForm").submit();
+    }
+
+    const dialog = document.querySelector("dialog")
+    function closeDialog() {
+      dialog.close();
+    }
+    function openDialog() {
+      dialog.showModal()
+    }
+    dialog.addEventListener("click", e => {
+    const dialogDimensions = dialog.getBoundingClientRect()
+    if (
+      e.clientX < dialogDimensions.left ||
+      e.clientX > dialogDimensions.right ||
+      e.clientY < dialogDimensions.top ||
+      e.clientY > dialogDimensions.bottom
+    ) {
+      dialog.close()
+    }
+  })
+</script>
+<style>
+  .shadow {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+  }
+  dialog[open] {
+    -webkit-animation: show 0.6s ease-out;
+  }
+  @-webkit-keyframes show {
+    from {
+      transform: translateY(110%);
+    }
+    to {
+      transform: translateY(0%);
+    }
+  }
+
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+</style>
+{% endblock %}
