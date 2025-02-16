@@ -1,6 +1,6 @@
 # 🚗 **GearUp : The Intelligent Used Car Marketplace** 🚀  
 
-![Demo](assets/car_demo.gif)
+![Demo](app/static/assets/car_demo.gif)
 
 ## **📌 Overview**
 **GearUp ** is a cutting-edge **AI-powered** used car marketplace that enhances your buying and selling experience with **data-driven insights**. Our platform utilizes **machine learning algorithms** to predict resale values, recommend the best deals, and personalize the search process—making it easier than ever to **find the perfect vehicle** at the right price.
