@@ -1,84 +1,108 @@
-## AutoWise: The Intelligent Used Car Marketplace
+# 🚗 **GearUp : The Intelligent Used Car Marketplace** 🚀  
 
-**Description:** AutoWise is a cutting-edge used car marketplace that combines the power of machine learning with your car buying and selling needs. Experience a smarter and more efficient way to browse, buy, or sell used cars with our intelligent platform. AutoWise doesn't just connect car enthusiasts; it analyzes data to provide precise price predictions and offers personalized recommendations, ensuring you find the perfect vehicle. Welcome to the future of used car shopping with AutoWise !!
+![GearUp  Banner](https://your-image-url.com/banner.png) <!-- Replace with a real banner image URL -->
 
-## Installation
+## **📌 Overview**
+**GearUp ** is a cutting-edge **AI-powered** used car marketplace that enhances your buying and selling experience with **data-driven insights**. Our platform utilizes **machine learning algorithms** to predict resale values, recommend the best deals, and personalize the search process—making it easier than ever to **find the perfect vehicle** at the right price.
 
-in order to set up this project and install its dependencies, follow these steps:
+✅ **Key Features:**
+- **Smart Price Prediction**: Get accurate car valuations using advanced machine learning models.  
+- **Personalized Car Recommendations**: Find the best vehicles based on your preferences and market trends.  
+- **Seamless Car Selling**: Get an instant price estimate for your car in **under 2 minutes**.  
+- **Intelligent Search & Filters**: Refine your search based on brand, model, features, and price.  
 
-1. **Clone the Repository:**
+🎥 **Watch the Demo:**  
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ltb2npcErZ8" frameborder="0" allowfullscreen></iframe>  
+*(Replace `"YOUR_VIDEO_ID"` with your actual YouTube video ID.)*
 
-   ```bash
-   git clone https://github.com/yourusername/yourproject.git
-   cd yourproject
-   ```
-2. Create a Virtual Environment (Optional but Recommended):
+---
 
-It's recommended to create a virtual environment to isolate the project's dependencies.
+## **🛠️ Installation & Setup**
+To set up **GearUp ** on your local machine, follow these steps:
 
+### **1️⃣ Clone the Repository**
+```bash
+git clone https://github.com/yourusername/GearUp .git
+cd GearUp 
+```
+
+### **2️⃣ Create a Virtual Environment** (Recommended)
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows, use 'venv\Scripts\activate'
+source venv/bin/activate  # Windows: venv\Scripts\activate
 ```
-Install Dependencies:
 
-Use pip to install the required packages listed in requirements.txt.
-
-``` bash
+### **3️⃣ Install Dependencies**
+```bash
 pip install -r requirements.txt
 ```
-## Dependencies
-Listed are the dependencies needed.
 
-- [beautifulsoup4](https://pypi.org/project/beautifulsoup4/) (v4.12.2)
-- [Flask](https://pypi.org/project/Flask/) (v3.0.0)
-- [pandas](https://pypi.org/project/pandas/) (v2.1.1)
-- [Pillow](https://pypi.org/project/Pillow/) (v10.0.1, v10.1.0)
-- [psycopg2](https://pypi.org/project/psycopg2/) (v2.9.9)
-- [psycopg2-binary](https://pypi.org/project/psycopg2-binary/) (v2.9.8)
-- [Requests](https://pypi.org/project/requests/) (v2.31.0)
-- [selenium](https://pypi.org/project/selenium/) (v4.14.0)
-- [tqdm](https://pypi.org/project/tqdm/) (v4.66.1)
+### **4️⃣ Configure Database Settings**
+- Move into the `schema` folder:
+  ```bash
+  cd ./app/schema
+  ```
+- Open `app.conf` and update your **PostgreSQL** credentials:
+  ```ini
+  [DEFAULT]
+  dbname = used_cars
 
-## Configuration Settings
+  [sql-prod]
+  bi_db = used_cars
+  host = localhost
+  user = your-username
+  dbname = used_cars
+  password = your-password
+  ```
 
-Below are the configuration settings used in this project. You can modify these settings to match your environment and project requirements.
-- You will have to make these changes in the ```app.conf``` file.
+### **5️⃣ Setup the Database**
+Before proceeding, ensure you have **PostgreSQL 16+** installed.  
+[Download PostgreSQL](https://www.postgresql.org/download/) if needed.
 
-Move into the ```schema``` folder.
-``` bash
-cd ./app/schema
+- **Create Database**:
+  ```sql
+  CREATE DATABASE used_cars;
+  ```
+
+- **Import Tables**:
+  ```bash
+  psql -d used_cars -U your_username -a -f tables.sql
+  ```
+  *(Replace `your_username` with your actual PostgreSQL username.)*
+
+---
+
+## **📦 Dependencies**
+These are the required dependencies for **GearUp **:
+
+| Package          | Version  | Description |
+|-----------------|---------|-------------|
+| Flask           | `3.0.0` | Backend framework |
+| pandas          | `2.1.1` | Data processing |
+| beautifulsoup4  | `4.12.2` | Web scraping |
+| selenium        | `4.14.0` | Browser automation |
+| psycopg2-binary | `2.9.8` | PostgreSQL database driver |
+| Pillow          | `10.1.0` | Image processing |
+
+Install them using:
+```bash
+pip install -r requirements.txt
 ```
-Then open ```app.conf``` in an editor and make the following changes.
-```ini
-[DEFAULT]
-dbname = used_cars
 
-[sql-prod]
-bi_db = used_cars
-host = localhost
-user = your-user-name
-dbname = used_cars
-password = your-password
-```
-## Database Schema Setup
-Before setting up the database schema for this project, ensure that you have PostgreSQL version 16 or later installed on your system. 
-If you haven't already installed PostgreSQL, you can download and install it from the official PostgreSQL website: [Download PostgreSQL](https://www.postgresql.org/download/).
+---
 
-Once you have PostgreSQL installed, follow these steps:
-To set up the database schema for this project, follow these steps:
-
-1. **Create the Database:**
-
-   First, create the database where the project's tables will be stored. You can do this using a SQL client or a command-line interface for your database system. Here's an example using PostgreSQL:
-
-   ```sql
-   CREATE DATABASE used_cars;
-   ```
-2. **Create Tables:**
-  Run the SQL script tables.sql to create the necessary tables. You can use a SQL client or a command-line tool to execute the script. Here's an example using the PostgreSQL command-line tool:
+## **🚀 Running the Application**
+Once the setup is complete, launch **GearUp ** by running:
 
 ```bash
-psql -d used_cars -U your_username -a -f tables.sql
+python app.py
 ```
-Make sure to replace your_username with your database username and provide any necessary authentication details.
+
+Now, open your browser and navigate to:
+```
+http://127.0.0.1:5000
+```
+
+🚀 **You're all set! Start exploring the future of used car shopping with GearUp !** 🚗
+
+---
