@@ -12,8 +12,9 @@
 - **Intelligent Search & Filters**: Refine your search based on brand, model, features, and price.  
 
 🎥 **Watch the Demo:**  
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ltb2npcErZ8" frameborder="0" allowfullscreen></iframe>  
-*(Replace `"YOUR_VIDEO_ID"` with your actual YouTube video ID.)*
+🔗 [Click here to watch](https://www.youtube.com/watch?v=Ltb2npcErZ8)
+
+[![Watch the Video](https://img.youtube.com/vi/Ltb2npcErZ8/maxresdefault.jpg)](https://www.youtube.com/watch?v=Ltb2npcErZ8)
 
 ---
 
